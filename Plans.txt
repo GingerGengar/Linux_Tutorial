@@ -1,0 +1,33 @@
+Linux Tutorial Plans:
+    Tasks to Focus on:
+        Terminal Usage
+            Learn how to open terminal
+            Learn how to open new tabs in the terminal
+            Learn how to partition the tabs in terminal
+            Learn how to quit terminal
+        Window Manipulation
+            Learn how to move across workspaces
+            Learn how to move terminals across workspaces
+            Learn how to reorder the terminals in a single workspace
+        Text Editor Introduction
+            Write a simple txt file
+            Write a Latex Document
+        PDF Reading
+            zathura commands
+        Basic Programming
+            Learn to compile hello world in c
+            Learn how to interpret hellow world in python
+            Learn how to enter python console
+        Basic Package Management
+            Do a Binary Install
+                Install firefox
+            Do a Build from Source
+                Install discord
+        Starting Applications
+            Browse the internet
+            Start discord and chat
+        Introducing manpages and --help flags
+            Download video from youtube using youtube-dl
+            Play Videos Downloaded from YouTube
+            View images using feh
+

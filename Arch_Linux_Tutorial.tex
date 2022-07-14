@@ -1,0 +1,479 @@
+\documentclass[a4paper, 12pt]{report}
+
+\usepackage{comment}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{array}
+
+\geometry{portrait, margin= 0.43in}
+
+\def\tabsize{1.9cm}
+\def\ltabsize{1.4cm}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset{
+	columns=fullflexible,
+	frame=single,
+	breaklines=true,
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	keepspaces=true,                 
+	numbersep=5pt,                  
+	tabsize=2
+}
+
+
+\begin{document}
+
+\title{Arch Linux Tutorial}
+\author{Ginger Gengar}
+\date{$12^{th}$ July 2022}
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\begin{center}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Rationale}
+\begin{comment}
+\end{comment}
+Below explains why this tutorial exists. This tutorial is only valid for Arch Linux that was personally configured. 
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Why Use a Computer?}
+\begin{comment}
+\end{comment}
+%Seperator
+I cannot certainly speak for all users, I use a computer to help me do abstract work. Mathematics is the backbone of most major engineering fields. A lot of things in mathematics can be solved using analytical hand-written solutions, but many real-life problems cannot be solved that way. They must be solved numerically, by manual iteration. This is fine if your problem is small, but once your problem gets large enough, it becomes impossible to do by hand and instead, you have to turn to computers. 
+%Seperator
+\\~\\What kind of mathematical problems am I referring to? I am referring to ordinary differential equations, large matrix equations, tensor operation and even experimental symbollic computation. Why are these problems important? Solving these mathematical problems allows us to construct bridges, skyscrapers, train networks, cars, ships, aircrafts, rocketry, and most modern technologies we have today. Technology's backbone is theoretical engineering and theoretical engineering's backbone is mathematics, and mathematics can then be solved using general-purpose computers. So computers in this regard represent the last step of computing answers to. Computers are NOT A SUBSTITUTE for HUMAN THOUGHT.
+%Seperator
+\\~\\What other things can be done by tinkering with a computer? Automation of manufacturing, moving actuators, flying aircrafts and driving cars. Lower level electronics that can marginally be called computers also perform alot of vital tasks in multiple industries, though I am not an expert in this regard, I deal more with the theoretical computations so far. There are many other applications of computer beyond what I have discussed, but the above are already very good reasons to learn computing.
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Why Use Linux?}
+\begin{comment}
+\end{comment}
+%Seperator
+One of the most astounding things I still remember to this day switching from Windows to Linux (Ubuntu) was the existence of package managers. For some reason my machine did not come with mingw, which made it incapable of compiling \texttt{C}. I spent almost 2 days trying to install mingw navigating through old sites, and being concerned of accidentally installing malware. Eventually I failed to install mingw. In Linux (Ubuntu) though, the \texttt{C} compiler \texttt{gcc} was pre-installed, and even if it wasn't, a simple command to the package manager solves all of 2 days worth of problems in just 2 minutes, not even.
+%Seperator
+\\~\\I also attempted to install a linear algebra library called \texttt{armadillo}. I also wanted to try out another linear algebra library \texttt{eigen}. I had to go through so many hoops installing all of the dependencies manually for \texttt{armadillo} such as \texttt{BLAS}, \texttt{SuperLU}, and others. With a linux system, a simple package manager command installs everything perfectly. So the point is, the package manager in Linux is absolutely necessary for any real programming work and is one of many great reasons to use Linux.
+%Seperator
+\\~\\It didn't mean much when I first started Linux, but Linux is largely customizable. The text editor, kernel version, window manager, compositor, shell, and many other utilities can be configured and customized to the user's liking. This makes the Linux operating system an incredibly personal and efficient machine. Think about the Linux operating system as a lego piece whose parts can be defined by the user themselves and chosen. This also means that no 2 Linux operating system are exactly alike because each user has their own configurations and choice of programs. 
+%Seperator
+\\~\\The customizability of Linux also permits a variety of workflows, including \texttt{cli}-based workflows. \texttt{cli} stands for command line interface. This is a way to use the computer that abandons the mouse altogether and does everything from just the keyboard. It is faster and easier to do many tasks that way. In this tutorial, \texttt{cli} would be used extensively.
+%Seperator
+The last reason I have is an ideological one, which is that the Linux operating system is part of a free operating system. Free here as define by the \texttt{GNU} does not necessarily mean free of cost (although Linux is free of cost) but instead, free here means the users are free to examine the system in great detail, learn and expand it on their own. This is important because it gives the users the reigns to how computing is done. Users can verify no malware is pre-installed on the machine, and that the computer performs up to user expectations. Users are also not dependent on corporates which is good.
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Why Arch Linux?}
+\begin{comment}
+\end{comment}
+%Seperator
+A Linux distribution just means a version of Linux. Arch Linux is a Linux distribution, which means that Arch Linux is a version of the Linux operating system. To be clear, all Arch Linux systems are part of the Linux family, but not all Linux systems is Arch Linux. There are a few reasons why Arch Linux is a good Linux operating system:
+%Seperator
+\\~\\Arch Linux supports both binary installs and building from source. Compiled programs are translated from ther text form into machine code, which are 1's and 0's in human-unreadable form. The act of translating text format into machine code is called compilation. Binary installation is downloading those raw machine code and putting them in the appropriate directory inside the system. Building from source or source installation is downloading the human-readable text form, and then performing the compilation process on the user's machine before installing the resulting binary in the user's machine. Building from source always takes longer than binary install, but has the potential of resulting in a higher performing installed program.  Arch Linux supports both types of installs, which makes it very flexible and can install a very large variety of programs.
+%Seperator
+\\~\\Arch Linux is also very minimal. Minimal means that the base Arch Linux system has very few things installed in it. This means that users are free to build the system from the ground up, specifying the browser, terminal, window manager, compositor, status bar, text editor and other details themselves. A minimal system IS NOT IDEAL for users who believe an operating system should work out of the box. In a minimal system, one has to specify everything themselves, which is where the customization power of Linux is best revealed. 
+%Seperator
+Users who want to trade customization power for convenience should just try another distribution like Ubuntu, Linux Mint, Manjaro, etc. A non-minimal system has drawbacks when the user attempts to customize it because then the user has to uninstall unnecessary pre-installed packages, and then figure out the relationship between different packages and how to break their link and so on, which is more complicated than just configuring the system on your own. By configuring the system on your own, at least the user knows the different relationship bewteen different softwares they themselves have installed.
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\section{Program Configuration}
+\begin{comment}
+\end{comment}
+In this section, we will learn how to configure basic programs. 
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Basic Terminal Usage}
+\begin{comment}
+\end{comment}
+Starting programs, writing, and almost anything can be done through the terminal. To open a new terminal press:
+\begin{lstlisting}
+super + enter
+\end{lstlisting}
+The super key is the command key, or the windows key on a typical keyboard. A new terminal instance should appear on pressing the keybinding above. To quit the terminal instances, press:
+\begin{lstlisting}
+ctrl + shift + w
+\end{lstlisting}
+These keybindings have not been changed from the default in kitty. Kitty has tabs and windows. Windows are inside a tab. To open a new tab, press:
+\begin{lstlisting}
+ctrl + shift + t
+\end{lstlisting}
+To navigate to the tab on the left
+\begin{lstlisting}
+ctrl + shift + left
+\end{lstlisting}
+To navigate to the tab on the right:
+\begin{lstlisting}
+ctrl + shift + right
+\end{lstlisting}
+Within a single tab, it is possible to open multiple windows. To do this, press:
+\begin{lstlisting}
+ctrl + shift + enter
+\end{lstlisting}
+To navigate to the left window,
+\begin{lstlisting}
+ctrl + shift + [
+\end{lstlisting}
+To navigate to the right window,
+\begin{lstlisting}
+ctrl + shift + ]
+\end{lstlisting}
+The keybinding \texttt{ctrl + shift + w} can close windows one at a time and tabs as well, try experimenting with it. To open a new tab between existing tabs, press:
+\begin{lstlisting}
+ctrl + t
+\end{lstlisting}
+This should cover the basics of terminal navigation.
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Basic Window Manager Usage}
+\begin{comment}
+\end{comment}
+Without anything else open, user resides in the first workspace. To go to the second workspace, press:
+\begin{lstlisting}
+super + 2
+\end{lstlisting}
+To go the third workspace,
+\begin{lstlisting}
+super + 3
+\end{lstlisting}
+Entering a different number will go to that workspace.  To go back to the original workspace, press:
+\begin{lstlisting}
+super + 1
+\end{lstlisting}
+Try opening 2 terminals by pressing \texttt{super + enter} twice for the two terminals. Try opening multiple tabs on one of them by pressing \texttt{ctrl + shift + t} successively for one of the terminals. To navigate between the terminal instances press:
+\begin{lstlisting}
+super + left
+\end{lstlisting}
+Alternatively, one can press:
+\begin{lstlisting}
+super + right
+\end{lstlisting}
+To make the terminal instances tile differently, One can navigate to either one of the terminal instances and press:
+\begin{lstlisting}
+super + shift + left
+\end{lstlisting}
+One can experiment with the following commands for different ways to tile the terminals:
+\begin{lstlisting}
+super + shift + up
+super + shift + down
+super + shift + right
+\end{lstlisting}
+One can think of the \texttt{super + shift} as the keybinding to "hold and drag" a particular terminal instance. The same logic can be applied to put terminal instances and other programs in different windows. Try navigating to one of the terminal instances and then pressing:
+\begin{lstlisting}
+super + shift + 2
+\end{lstlisting}
+Pressing different numbers will move the terminal instances or other programs to different workspaces. For example, to move a terminal instance to the third workspace, navigate to the terminal instance and press:
+\begin{lstlisting}
+super + shift + 3
+\end{lstlisting}
+The window manager also can force quit a window. To kill a particular window, navigate to it and then press:
+\begin{lstlisting}
+super + shift + q
+\end{lstlisting}
+This should cover the basics of how the window manager works.
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Basic Core Utilities}
+\begin{comment}
+\end{comment}
+To make a new file use type in the following command in a terminal instance:
+\begin{lstlisting}
+touch Pokemon.txt
+\end{lstlisting}
+\texttt{touch} is one of the core utilities in the Linux system, and the command above just means create the file named \texttt{Pokemon.txt} inside the current directory. Changing \texttt{Pokemon.txt} with another name would change the name of the file you are creating. For example, to create another file named \texttt{Digimon.dat} one can simply just type inside the terminal:
+\begin{lstlisting}
+touch Digimon.dat
+\end{lstlisting}
+One difference coming from a \texttt{Windows} operating system is that file name extensions like \texttt{.txt}, \texttt{.dat}, \texttt{.exe} in windows tell the operating system what to do with those files. In Linux, file name extensions are more like suggestions for the content inside. The operating system will not care what the extension of those files are. So in a Linux system, naming a file \texttt{Pokemon.txt} and \texttt{Pokemon.dat} will not change how the computer treats the files. Now to see the list of files and folders in the current directory, invoke the \texttt{list} command by typing in the terminal:
+\begin{lstlisting}
+ls
+\end{lstlisting}
+If you do that, then you will see the names of the files we have created in the previous prompts. The way to delete files is to invoke the \texttt{remove} command. To delete the file \texttt{Pokemon.txt} that is in the current directory, type in:
+\begin{lstlisting}
+rm Pokemon.txt
+\end{lstlisting}
+The \texttt{rm} command has to be used with great caution. Deleting a file or directory using the \texttt{rm} command IS PERMANENT. Now it is time to create directories. To make a new directory named \texttt{PokeDex} invoke the command in the terminal:
+\begin{lstlisting}
+mkdir PokeDex
+\end{lstlisting}
+Using the \texttt{list} command will give you a list of all the files and directories in a directory. There are a few ways to delete a directory. The \texttt{remove directory} command \texttt{rmdir} works if the directory is empty and has nothing in it. The \texttt{rm} command with a flag works even if the directory is not empty. To delete the directory \texttt{PokeDex}, one can invoke the command:
+\begin{lstlisting}
+rmdir PokeDex
+\end{lstlisting}
+Alternatively, one can invoke the \texttt{rm} command to also delete the directory by saying:
+\begin{lstlisting}
+rm -r PokeDex
+\end{lstlisting}
+In the above example, \texttt{-r} is a flag. We pass the \texttt{-r} flag to \texttt{rm} which means remove recursively all directories and files inside the directory \texttt{PokeDex}. After covering creation and destruction of directories, it is now important to be able to navigate between different directories. Create the directory again by invoking \texttt{mkdir PokeDex}. To navigate inside the directory \texttt{PokeDex}, say:
+\begin{lstlisting}
+cd  PokeDex
+\end{lstlisting}
+Here the \texttt{cd} command stands for change directory. To go back to the directory that contains \texttt{PokeDex}, say:
+\begin{lstlisting}
+cd ..
+\end{lstlisting}
+The command above would go back to where you once were. If you are confused about where you are in a linux system, invoke the command \texttt{pwd}. Type into the terminal:
+\begin{lstlisting}
+pwd
+\end{lstlisting}
+The command above stands for print working directory. The command above would print where you are inside the linux system. Now you might be wondering how can I rename, move files in Linux? It is possible with the \texttt{mv} command. Suppose we are at the home directory and you only have a single file \texttt{Pokemon.txt} and you would like to rename this file into \texttt{Digimon.txt}, then you can simply invoke the following command if you are inside the same directory as \texttt{Pokemon.txt}:
+\begin{lstlisting}
+mv Pokemon.txt Digimon.txt
+\end{lstlisting}
+Remember that file name extensions in linux do not mean anything, so if you wish, there is no need to even keep the \texttt{.txt} extension in the name \texttt{Digimon.txt} . Supposing you have a directory named \texttt{PokeDex}, by creating it using one the commands earlier and you wish to move the file \texttt{Digimon.txt} into the directory \texttt{PokeDex}. You can do this by invoking the command:
+\begin{lstlisting}
+mv Digimon.txt PokeDex
+\end{lstlisting}
+You can use \texttt{cd} and \texttt{ls} to verify this has been done correctly. \texttt{mv} is a versatile command, it also works for renaming and moving directories into inside other directories. For example you have $3$ directories \texttt{Games} and \texttt{Work} and \texttt{General}. You could move \texttt{Games} and \texttt{Work} to \texttt{General} by invoking the command:
+\begin{lstlisting}
+mv Games Work General/
+\end{lstlisting}
+The \texttt{cp} command stands for \texttt{copy}. This command can be used to copy directories and files. Here is an example:
+\begin{lstlisting}
+cp something1 AnotherThing2
+\end{lstlisting}
+Here \texttt{something1} can be a file, a directory, it can be anything, and \texttt{AnotherThing2} is the name of the copy. To make your life easier, just press \texttt{tab} to autocomplete the commands in the shell. Another useful command is:
+\begin{lstlisting}
+clear
+\end{lstlisting}
+This command clears the terminal of all the previus commands. There is a special directory that is meant to be user-specific. That is the home directory To go to the home directory, one can say,
+\begin{lstlisting}
+cd ~
+\end{lstlisting}
+with the \texttt{\~} character. Invoking the command,
+\begin{lstlisting}
+cd
+\end{lstlisting}
+also just immediately jumps to the home directory.
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Basic Text Editing}
+\begin{comment}
+\end{comment}
+
+
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Dotfiles \& Config Files}
+\begin{comment}
+\end{comment}
+The terminal that is configured in this system is \texttt{kitty}. \texttt{kitty} by default does not look like it does on the machine. The colors have been changed, and the tab bars have also been changed. The font sizes have been changed and so on and so forth. The keybindings for the window manager like \texttt{super + shift + 2} to move something to workspace 2 are also modified from their original versions. How can we tell the program user-specific preferences? 
+%Seperator
+\\~\\The way users can specify their preferences are by writing files inside the \texttt{.config} directory in the home directory. All directories that start with a \texttt{.} are commonly known as "dotfiles". Directories that start with a \texttt{.} are assumed to be system details that the user does not need to know about. So, a simple naive \texttt{ls} command will not show all of the "dotfiles". "dotfiles" are also known as "hidden files". Additional flags can be passed to \texttt{ls} to allow it to see the "dotfiles". Navigate to the home directory by invoking the command:
+\begin{lstlisting}
+cd ~
+\end{lstlisting}
+Once there, invoke the \texttt{list} command with the flags \texttt{-a}. This will specify \texttt{list} to show all files inside the directory, including the hidden ones:
+\begin{lstlisting}
+ls -a
+\end{lstlisting}
+This may look a bit ugly, so pass the additional parameter \texttt{-l} to make it look like a list:
+\begin{lstlisting}
+ls -l -a
+\end{lstlisting}    
+This might take a long time to type, so you can make it shorter by instead invoking:
+\begin{lstlisting}
+ls -la
+\end{lstlisting}
+This is a shorter notation for \texttt{ls -l -a}. Once you have performed any of the \texttt{list} commands above, you can see the "hidden files" such as \texttt{.bashrc} and a \texttt{.config}. Navigating to the \texttt{.config} directory and then invoking the command \texttt{ls} would show all of the different programs. Navigating to one of the program directory would reveal another file. For example, navigate to the \texttt{kitty} directory. Inside that directory, there is a file \texttt{kitty.conf} and \texttt{colors.conf}. \texttt{kitty.conf} is where the user specific configurations for the \texttt{kitty} terminal resides. Changing the contents of the file \texttt{kitty.conf} with a text editor from the previous part changes the behaviour of the \texttt{kitty} terminal. The same treatment can be applied to different programs to personalize their behaviours. 
+%Seperator
+\\~\\What to put inside the config file of each program is all program dependent and I would not reiterate the different options here. For more details for each program, visit the individual program pages and read the appropriate documentation regarding customizing the program.
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\section{Reading \& Writing: \LaTeX}
+\begin{comment}
+\end{comment}
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\section{Basic Programming}
+\begin{comment}
+\end{comment}
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\section{Shell Scripting \& Configurations}
+\begin{comment}
+\end{comment}
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\section{Basic Package Management}
+\begin{comment}
+\end{comment}
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\section{Learning Program Usage}
+\begin{comment}
+\end{comment}
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\section{Miscellaneous}
+\begin{comment}
+\end{comment}
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Keybinding Summary}
+\begin{comment}
+\end{comment}
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Further Reading}
+\begin{comment}
+\end{comment}
+%Seperator
+%Seperator
+%Seperator
+\subsubsection{General Arch Linux}
+\begin{comment}
+\end{comment}
+The Arch Linux Wiki contains a lot of technical information. When trying to debug the system, the Arch Linux Wiki is a great rescource:
+\\\url{https://wiki.archlinux.org/} 
+%Seperator
+%Seperator
+%Seperator
+\subsubsection{Kitty Terminal}
+\begin{comment}
+\end{comment}
+This is the official page for the kitty terminal:
+\\\url{https://sw.kovidgoyal.net/kitty/} 
+\\The Github source code for the kitty terminal:
+\\\url{https://github.com/kovidgoyal/kitty} 
+
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Art Gallery}
+\begin{comment}
+Fill with Unixporn posts
+\end{comment}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{center}
+\end{document}
