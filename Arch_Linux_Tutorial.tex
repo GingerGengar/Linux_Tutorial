@@ -300,8 +300,27 @@ also just immediately jumps to the home directory.
 \subsection{Basic Text Editing}
 \begin{comment}
 \end{comment}
-
-
+My specific setup uses \texttt{neovim}, which is based off the famous text editor \texttt{vim}. \texttt{vim} can be a little intimidating to work with initially. There is an in-built vim tutorial. To see the in-built vim tutorial, key in to the terminal
+\begin{lstlisting}
+vimtutor
+\end{lstlisting}
+There one can use the \texttt{up} \texttt{down} arrow keys initially. The tutorial uses a vim-like keybinding. To exit the tutorial, type in the following in the vim/Neovim session,
+\begin{lstlisting}
+:q
+\end{lstlisting}
+This is also information that can be found after reading the tutorial. The tutorial does not take too long. Reading the tutorial is highly recommended. Suppose you have some text file, which you have downloaded, or created using the \texttt{touch} command, then to open a file named \texttt{Helios.txt} one can key into the terminal:
+\begin{lstlisting}
+nvim Helios.txt
+\end{lstlisting}
+in the same directory where the file \texttt{Helios.txt} resides. \texttt{nvim} is the name of the text editor, which is Neovim. \texttt{Helios.txt} is the name of the text file you wish to edit. Additional arguments may be passed to \texttt{nvim} or the classical vim editor \texttt{vim} to specify additional behaviour. For example, the terminal command,
+\begin{lstlisting}
+nvim -Ro Helios.txt
+\end{lstlisting}
+would make \texttt{Neovim} open the file \texttt{Helios.txt} in a Read Only format, so you are unable to make accidental changes to the file by default. Here I am going to discuss just the basics of editing a file, and saving a file. For full information about vim, just use the \texttt{vimtutor} command. This document will only cover the bare basics of using vim/Neovim, more advanced techniques will not be covered here. 
+%Seperator
+\\~\\Once you have opened a file, using the command prescribed above, Neovim/vim by default enters normal mode, which means you cannot start writing yet. To be able to edit the file, press \texttt{esc} in the vim/neovim session to enter normal mode, and then press, \texttt{i} inside the vim/Neovim session to enter "Insert" mode. After that, one can start editing the file. Even after you have done all the edits, your changes are not yet saved into the file. To save the changes into the file, firstly  press \texttt{esc} to enter normal mode again, and then press \texttt{:w} to write the changes into the file. Pressing \texttt{esc} allows you to enter normal mode. Once in normal mode, pressing \texttt{u} undos the latest changes you've made, meanwhile \texttt{ctrl + r} redos the changes you've made. 
+%Seperator
+\\~\\Once you are satisfied with the edits, you can quit by first entering normal mode by pressing \texttt{esc} inside the vim session, and then quitting by pressing \texttt{:q}. Remember that you should save changes to the file before quitting (vim will usually throw a warning if you attempt to quit before saving changes). When quitting, one can also do something like this from normal mode: \texttt{:wq}. The command \texttt{:wq} is a shortcut for Write and Quit. This can be an easier faster way of quitting vim. DO NOT CONSIDER TEXT EDITING A TRIVIAL TASK. TEXT EDITING IS ONE OF THE MOST IMPORTANT SKILLS FOR INTERACTING WITH THE COMPUTER.
 
 %Seperator
 %Seperator
@@ -340,6 +359,102 @@ This is a shorter notation for \texttt{ls -l -a}. Once you have performed any of
 \section{Reading \& Writing: \LaTeX}
 \begin{comment}
 \end{comment}
+\LaTeX is a powerful typesetting system for communicating technical ideas effectively. It is beautiful, elegant, and comprehensive. Here is a list of a few things \LaTeX can do when writing documents:
+\begin{itemize}
+\item Write Mathematical equations quickly and beautifully: This includes matrix equations, tensor notations, and many more
+\item Write chemical equations: This is relevant for the chemists out there
+\item Write clean tables: This is an important aspect of data visualization
+\item Include code blocks and listings: This comes with fully customizable color and syntax highlighting
+\item Draw out complex circuit diagrams: THis is for the electrical computer engineers who need to communicate circuitry across
+\item Command line based, so \LaTeX is scriptable and automatic documentation can be generated 
+\end{itemize}
+This document is not meant to be a fully-fledged \LaTeX tutorial. I have another guide for that, discussing in greater depth how to use the \LaTeX system more effectively. This document is just to show how \LaTeX fits to my particular Arch linux setup.
+%Seperator
+\\~\\Writing in \LaTeX is relatively straightforward. One can just write a file containing \LaTeX code and then call the \LaTeX compiler to generate a PDF document. This PDF document can then be viewed using some PDF reader such as zathura. One needs to know how to use a PDF reader first to examine the output of the \LaTeX compiler. So it is advised to read this section sequentially.
+
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\section{Reading PDF}
+\begin{comment}
+\end{comment}
+The PDF reader for my particular linux setup is zathura. Suppose you have a PDF document named \texttt{Ruler.pdf} in some directory. To view the PDF document, navigate a terminal instance to the same directory \texttt{Ruler.pdf} resides in, and then invoke the command below:
+\begin{lstlisting}
+zathura Ruler.pdf
+\end{lstlisting}
+This will open a new zathura instance, showing the contents of \texttt{Ruler.pdf} . Here are a few default keybindings on how to do a basic usage of zathura:
+\begin{itemize}
+\item \texttt{ctrl + r} toggles dark mode and light mode. This might be useful for working at night
+\item \texttt{r} simply rotates the document clockwise, this is useful for viewing landscape documents without tilting your head.
+\item \texttt{d} toggles viewing $2$ pages at the same time or just $1$ page at the same time
+\item \texttt{gg} goes to the beginning of the document
+\item \texttt{shift + g} goes to the end of the document
+\item \texttt{=} puts the document to fit the screen
+\item \texttt{shitf + plus} is used to zoom into the document
+\item \texttt{minus} is used to zoom out of the document
+\item \texttt{ctrl + m} is used to open another instance of the same exact PDF document
+\end{itemize}
+It is important to know that zathura is just one PDF reader you can choose out of many. There are other PDF readers out there such as Okular, Evince, XPDF, GNU GV, Mupdf, firefox, and more. I have just made the choice of choosing zathura because of its vim-like keybindings and configurability, but each user can choose for themselves, a PDF reader they like. To demonstrate alternate PDF viewers, try opening the document not with zathura, but with firefox this time. Just like before navigate to the directory \texttt{Ruler.pdf} resides in, and then try invoking the command
+\begin{lstlisting}
+firefox Ruler.pdf
+\end{lstlisting}
+This should open a firefox instace showing the contents of \texttt{Ruler.pdf} . Yes, \texttt{firefox}, the browser, has an in-built PDF reader which makes \texttt{firefox} capable of displaying PDF documents, so firefox can be used as a PDF reader if you like.
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\section{Writing \LaTeX}
+\begin{comment}
+\end{comment}
+Suppose you have a file named \texttt{Example.tex} in some directory, then to generate the PDF document, navigate the terminal to the same directory as \texttt{Example.tex} and invoke the following terminal command:
+\begin{lstlisting}
+pdflatex Example.tex
+\end{lstlisting}
+If you are unsure what to put in the \LaTeX file initially, just copy paste the content below:
+\begin{lstlisting}
+\documentclass[a4paper, 12pt]{report}
+
+\begin{document}
+
+This is some text.
+
+\end{document}
+\end{lstlisting}
+The \LaTeX code above should produce a simple one page document with the content "This is some text". The small \LaTeX code above can be used to at least learn how to compile \LaTeX documents manually. Typically though, to make life a little easier, a vim plugin was already installed called \texttt{vimtex}. This allows the compilation and viewing of a PDF to be directly handled from just inside neovim. To compile and see the document, just type in the following command while on normal mode inside a vim session opening a \texttt{.tex} file.
+\begin{lstlisting}
+\ll
+\end{lstlisting}
+To look at more features of \texttt{vimtex}, simply type in the command, inside a vim session,
+\begin{lstlisting}
+:help vimtex
+\end{lstlisting}
+To see any compilation errors, type the following while on normal mode:
+\begin{lstlisting}
+\le
+\end{lstlisting}
+To see a table of content for the document and jump to specific parts of the document, type in the following while on normal mode:
+\begin{lstlisting}
+\lt
+\end{lstlisting}
+By the end of writing and examining your first \LaTeX document, the workflow of a modular system should be clear. The general goal was to produce a document for communicating mathematical or other technical ideas. To achieve this goal, we used $3$ separate programs that only do one thing, but does that thing really well:
+\begin{enumerate}
+\item Neovim: Text editor to write the \LaTeX code, which is the content we want to communicate
+\item \LaTeX Compiler: This converts the \LaTeX code edited from Neovim into a full-fledged PDF
+\item Zathura: This is a PDF reader which allows us to see the final result of the document generated by the \LaTeX Compiler
+\end{enumerate}
+All of the programs shown above work well together and is used to generate the beautiful document we have written. Any of the $3$ programs above can be switched for another alternative based on whatever you, as the user want, and all of the $3$ programs above are extremely configurable, allowing the programs above to fit to the specific needs of the user. If you wish to construct even more complex tasks, the way to do it usually is not to scrap existing programs for larger more comprehensive programs, but instead to just add on newer small programs to fill the required task. For example, a workflow I have ever written for a single task looked like this:
+\begin{enumerate}
+\item Neovim: Text editor to write the \LaTeX code, C code, Python code, and Bash script
+\item \LaTeX Compiler: This converts the \LaTeX code edited from Neovim into a full-fledged PDF. By importing a package, \LaTeX was capable of inlining computer code
+\item Zathura: This is a PDF reader which allows us to see the final result of the document generated by the \LaTeX Compiler
+\item GCC: a \texttt{C} language compiler that was used to convert \texttt{C} code into binary, which was used to run a theoretical simulation
+\item python3: a python interpreter which was used to visualize the data generated by the \texttt{C} program and also to confirm hand-typed mathematical analytical expressions
+\item Bash: a shell interpreter that "glues" the \texttt{C} and python programs together, allowing results to be generated automatically by a single command
+\end{enumerate}
+Each of those programs in itself is relatively small, and does only one thing but does it well. Together, the small programs could be used to construct a massively complex idea from the ground up with less human duplicate work and present it in a beautiful manner.
 
 %Seperator
 %Seperator
@@ -354,9 +469,82 @@ This is a shorter notation for \texttt{ls -l -a}. Once you have performed any of
 %Seperator
 %Seperator
 %Seperator
-%Seperator
-\section{Shell Scripting \& Configurations}
+\subsection{Compiling Programs}
 \begin{comment}
+\end{comment}
+Compilation is the process of taking a file with the code written in it and translating the code into machine language. Most compiled languages are going to be compiled in the exact same way. Suppose we have a C program in some directory named \texttt{c\_program.c}. To run the program, navigate a terminal instante to the same directory and then type in the following comand:
+\begin{lstlisting}
+gcc c_program.c
+\end{lstlisting}
+Use the \texttt{ls} command to see the files in the directory before and after compilation. After compilation, there will be a binary named \texttt{a.out}. To run this binary in a linux environment, type in:
+\begin{lstlisting}
+./a.out
+\end{lstlisting}
+The output of the program will then appear on the terminal console. For users without significant programming background, copy the following content into the file \texttt{c\_program.c} :
+\lstinputlisting[language=c]{Hello_World.c}
+Compiling and running the program shown above should result in "Hello World!" being printed into the terminal console after running with \texttt{./a.out}. More advanced compilation options would be available, but this document is not meant to delve into too much detail on \texttt{C} programming.
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Running Interpreted Programs}
+\begin{comment}
+\end{comment}
+Back in the early days of computing, there was a split in how programs ran on the computer. Two types of programming languages that arose were the compiled programs and interpreted programs. As mentioned before, compiled programs translate all of the human-readable text into machine language all at once and then running the program is just running the translated machine language as we have demonstrated in the previous subsection.
+%Seperator
+\\~\\Interpreted programs take on a different approach in running them. Intepreted languages like python typically have an interpreter whose task roughly is to look at the program code and go line by line. Each line, the interpreter translates the program code into machine language and then runs the translated instructions. This means that interpreted languages unlike their compiled counterparts require translation from source code into machine language every single time the program runs instead of just once for the compiled language.
+%Seperator
+\\~\\Interpreted programs have an inherent overhead compared to compiled languages which means that interpreted languages are much slower than their compiled counterparts. There are several advantages to having intepreters. Interpreted programs can be interrupted in the middle and new code instructions can be keyed in by the programmer. This makes debugging interpreted programs much easier compared to their compiled counterparts. So the main takeaway of an interpreted language is that it is easier to write and develop in, but it is slower when run on the computer.
+%Seperator
+\\~\\Suppose you have some directory with a Python program named \texttt{python\_prog.py}. To run the program, navigate a terminal instance to the directory where the program Python program resides and run the following command:
+\begin{lstlisting}
+python python_prog.py
+\end{lstlisting}
+This should run the python program. It is much simpler to run interpreted programs compared to compiled programs. Users who are unfamiliar with the python programming language can copy the code into \texttt{python\_prog.py} just to test they can succesfully run a python program:
+\lstinputlisting[language=python]{Hello_World.py}
+Running the program above should result in "Hello Snake!" being printed into the terminal console. Entering the terminal console and executing code from there is one great advantage of interpreted programs. To enter the console, key in the command in a terminal instance:
+\begin{lstlisting}
+python -i
+\end{lstlisting}
+From there, one can type python code and upon pressing enter, it will be executed. The following is an example:
+\begin{lstlisting}
+Python 3.10.5 (main, Jun  6 2022, 18:49:26) [GCC 12.1.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print("Hello World")
+Hello World
+>>> x = 1
+>>> y = 3
+>>> x+y
+4
+>>> print(x)
+1
+>>> print(y)
+3
+>>> print(x*x)
+1
+>>> print(y*y)
+9
+>>> 
+\end{lstlisting}
+To quit the python terminal, simply type in:
+\begin{lstlisting}
+ctrl + d
+\end{lstlisting}
+while inside the python console. For debugging, to enter the python terminal console after the program has finished and examine the variables directly, type in the command:
+\begin{lstlisting}
+python -i python_prog.py
+\end{lstlisting}
+This will give the user command over the python console after \texttt{python\_prog.py} has finished, allowing the programmer to examine the variables and debug the program effectively.
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Shell Scripting \& Custom Scripts}
+\begin{comment}
+Firstly, cover how to use permissions to make a script runnable without explicitly invoking a particular interpreter, do this with Python
+Try a simple excercise of 
 \end{comment}
 
 %Seperator
@@ -366,6 +554,8 @@ This is a shorter notation for \texttt{ls -l -a}. Once you have performed any of
 %Seperator
 \section{Basic Package Management}
 \begin{comment}
+How to Install programs
+
 \end{comment}
 
 %Seperator
@@ -429,25 +619,6 @@ This is the official page for the kitty terminal:
 \begin{comment}
 Fill with Unixporn posts
 \end{comment}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
