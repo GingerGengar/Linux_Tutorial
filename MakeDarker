@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#Author: Hyahoos
+
+#Make Screen Darker:
+light -U 5

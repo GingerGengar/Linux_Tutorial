@@ -377,7 +377,7 @@ This document is not meant to be a fully-fledged \LaTeX tutorial. I have another
 %Seperator
 %Seperator
 %Seperator
-\section{Reading PDF}
+\subsection{Reading PDF}
 \begin{comment}
 \end{comment}
 The PDF reader for my particular linux setup is zathura. Suppose you have a PDF document named \texttt{Ruler.pdf} in some directory. To view the PDF document, navigate a terminal instance to the same directory \texttt{Ruler.pdf} resides in, and then invoke the command below:
@@ -406,7 +406,7 @@ This should open a firefox instace showing the contents of \texttt{Ruler.pdf} . 
 %Seperator
 %Seperator
 %Seperator
-\section{Writing \LaTeX}
+\subsection{Writing \LaTeX}
 \begin{comment}
 \end{comment}
 Suppose you have a file named \texttt{Example.tex} in some directory, then to generate the PDF document, navigate the terminal to the same directory as \texttt{Example.tex} and invoke the following terminal command:
@@ -541,11 +541,169 @@ This will give the user command over the python console after \texttt{python\_pr
 %Seperator
 %Seperator
 %Seperator
-\subsection{Shell Scripting \& Custom Scripts}
+%Seperator
+\section{Shell Scripting \& Custom Scripts}
 \begin{comment}
 Firstly, cover how to use permissions to make a script runnable without explicitly invoking a particular interpreter, do this with Python
 Try a simple excercise of 
 \end{comment}
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Trivial Hello World Program}
+\begin{comment}
+\end{comment}
+Try typing a command into the terminal
+\begin{lstlisting}
+echo "Hello World"
+\end{lstlisting}
+This command will print "Hello World" into the terminal console. It doesn't seem very useful in itself but will be used to show how commands typed into the bash terminal can be automated using a script. Now create a file and name it whatever you wish, but for this tutorial, it would be named \texttt{Hello\_world\_Bash}. Copy over the \texttt{echo} command into the file but this time add one line at the top like this:
+\lstinputlisting[language=bash]{Hello_world_Bash}
+Change the permissions of the file by using the command:
+\begin{lstlisting}
+chmod + x Hello_world_Bash
+\end{lstlisting}
+After this, the file can be executed by running the command, 
+\begin{lstlisting}
+./Hello_world_Bash
+\end{lstlisting}
+and the outupt of the command would be,
+\begin{lstlisting}
+Hello World
+\end{lstlisting}
+What have we done here? The process described above is essentially shell scripting. We have a command (but later this can be a set of commands) that we know works and we can execute by typing. However, being lazy, we decided that we wanted to do less typing. 
+%Seperator
+\\~\\Therefore, we created a file and wrote the command we would otherwise type ourselves into the file. This file has a special line at the top \texttt{\#!/bin/bash}. This is called a shebang, which is a one-line description how the shell should run or interpret the script. For this particular case, we have specified that this script should be run by a \texttt{bash} interpreter located at \texttt{/bin/bash}.
+%Seperator
+\\~\\After that, we changed the file premissions using the \texttt{chmod} command. We gave the file execute permissions which tells the shell of the system that this file is a script and contains executable instructions. This was the step \texttt{chmod +x Hello\_world\_Bash}.
+%Seperator
+\\~\\After all the steps above, the bash script has been made and is ready to run. The final command \texttt{./Hello\_world\_Bash} is a command to execute the contents of the script. This bash script though, is only available if the terminal is at the working directory the script resides in. To be able to call the functionality from anywhere, one must let the shell know to look at the script's directory. To do this, one must edit the \texttt{PATH} variable in the \texttt{.bashrc} script located in the home directory. Without too much detail, one can add the following line in the \texttt{.bashrc} script located in the home directory to make the script executable from anywhere within the linux system:
+\begin{lstlisting}
+PATH="DIRECTORY_THE_SCRIPT_HELLO_WORLD_BASH_RESIDES_IN"
+export path
+\end{lstlisting}
+Now from anywhere in the linux system, calling \texttt{Hello\_world\_Bash} prints "Hello World!"
+
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Screen Brightness Example}
+\begin{comment}
+\end{comment}
+\texttt{light} is a program that is used to control the brightness of the computer screen To increase the brightness of the screen by $5$ percent, key in the command,
+\begin{lstlisting}
+light -A 5
+\end{lstlisting}
+To decrease the brightness of the screen by $5$ percent, key in the command, 
+\begin{lstlisting}
+light -U 5
+\end{lstlisting}
+It is really cumbersome to have to keep typing \texttt{light -A 5} every time we need the screen a little bit brighter. Therefore, this is the perfect excuse to write a bash script to automate the screen lights. The $2$ scripts below can be used to increase brightness and reduce brigthness,
+\begin{lstlisting}[language=bash]
+#!/bin/bash
+#This is for increasing brightness
+light -A 5
+\end{lstlisting}
+The script to decrease brightness:
+\begin{lstlisting}[language=bash]
+#!/bin/bash
+#This is for decreasing brightness
+light -U 5
+\end{lstlisting}
+In shell scripting, anything that starts with a \texttt{\#} symbol is a comment, which will not be read by the interpreter. This is with the exception of the shebang that was written at the very first line of the file, which tells the shell what interpreter to use to execute the file's content. If the files for making the screen brighter is named \texttt{MakeBrighter} and the file for making the screen dimmer is named \texttt{MakeDarker}, then the following command will add an execute permission to both of those files:
+\begin{lstlisting}
+chmod +x MakeBrighter
+chmod +x MakeDarker
+\end{lstlisting}
+Alternatively to operate on both files with just a single command, 
+\begin{lstlisting}
+chmod +x MakeBrighter MakeDarker
+\end{lstlisting}
+Now if we are in the same directory, we can invoke the script to make the screen brighter by using the command,
+\begin{lstlisting}
+./MakeBrighter
+\end{lstlisting}
+Alternatively, we can make the screen a bit darker by invoking the command, 
+\begin{lstlisting}
+./MakeDarker
+\end{lstlisting}
+Of course, we would want to be able to invoke the command from anywhere in our system right? So add the directory the \texttt{MakeBrighter} and \texttt{MakeDarker} script reside in to the \texttt{PATH} variable. Add the following to the \texttt{.bashrc} file located in the home directory \texttt{\~}:
+\begin{lstlisting}
+PATH="DIRECTORY_THE_SCRIPT_MakeBrighter_Resides_In"
+PATH="DIRECTORY_THE_SCRIPT_MakeDarker_Resides_In"
+export path
+\end{lstlisting}
+Note that the \texttt{export path} command needs to be written just once in the entire \texttt{.bashrc} file. Doing the above would allow the command \texttt{MakeBrighter} and \texttt{MakeDarker} to be called from wherever you are inside the system. There is an additional step that can be taken which would require configuring the window manager to view the \texttt{MakeBrighter} and \texttt{MakeDarker} scripts and call those scripts whenever a particular keybinding is pressed. That way, controlling the screen brightness can be done fully through pressing buttons on the keyboard.
+%Seperator
+As a matter of fact, my personally configured system controls screen brightness the exact same way. This is the content of my \texttt{MakeBrighter} file:
+\lstinputlisting[language=bash]{MakeBrighter}
+This is the content of the \texttt{MakeDarker} file:
+\lstinputlisting[language=bash]{MakeDarker}
+This is basically identical in functionality to whatever we have written earlier. This is another way the shell can be used to control system-related things.
+
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{Running Consecutive Programs}
+\begin{comment}
+\end{comment}
+Suppose we're working on some complex project wherein we need to compile \texttt{programA.c} and then collect the resulting output named \texttt{data.dat}. The output file is then run into a series of Python post-processing programs, for plotting which would be named \texttt{programB.py}. Several symbollic computations also need to be verified along the way which would be handled by several interpreted Python scripts \texttt{programC.py} and \texttt{programD.py}. These are the likely commands to run when dealing with the terminal:
+\begin{lstlisting}
+gcc programA.c
+./a.out
+python programB.py
+python ProgramC.py
+python programD.py
+\end{lstlisting}
+The commands above assume that running the program using \texttt{./a.out} would result in an output file being generated as specified from within the \texttt{C} program. If the \texttt{C} program instead prints out the results to \texttt{stdout}, we can instead do something like this:
+\begin{lstlisting}
+gcc programA.c
+./a.out > data.dat
+python programB.py
+python ProgramC.py
+python programD.py
+\end{lstlisting}
+This ammendment allows us to specify the name of the file from interacting with the shell. The \texttt{>} operator means if there is any data in the file \texttt{data.dat} erase it and overwrite it with the new data incoming. Perhaps the Python script \texttt{programB.py} accepts a name of a file instead of having the file name hardcoded in. Therefore, we can also try doing this:
+\begin{lstlisting}
+gcc programA.c
+./a.out > data.dat
+python programB.py data.dat
+python ProgramC.py
+python programD.py
+\end{lstlisting}
+Now writing all that command can be cumbersome, so a bash script can be written into a file to automate writing all those commands. The bash script may look like this:
+\begin{lstlisting}[language=bash]
+#!/bin/bash
+
+#Compiling the Simulation Program
+echo "Compiling the Simulation Program..."
+gcc programA.c
+
+#Running the Simulation
+echo "Running and Collecting Simulation Data..."
+./a.out > data.dat
+
+#Doing some Post-Processing Work
+echo "Generating Graphs and Data Visualization..."
+python programB.py data.dat
+
+#Doing some Symbollic Computation Verification
+echo "Doing some Symbollic Computation Verification..."
+python ProgramC.py
+python programD.py
+\end{lstlisting}
+Remember that the \texttt{\#} commands are just comments, meanwhile the \texttt{echo} commands just print to the terminal console (\texttt{stdout}). The \texttt{echo} commands are just used to tell which part of the script the shell is currently at. It is pure cosmetics, the \texttt{echo} commands are not that important, the script can run just fine without the \texttt{echo} messages.
+%Seperator
+\\~\\This is how to automate larger and increasingly complex work using bash scripts. It is important to note that in the above, we were only dealing with a single file for the compiled simulation, which is \texttt{programA.c}. In many instances, it may be more convenient to have multiple files for the compiled part of the simulation. Which means that compilation has to handle multiple files. To do this in a more efficient way, build tools such as \texttt{Makefile} can be used to automate the compilatio of compiled programs into binary. 
+%Seperator
+\\~\\\texttt{Makefile} is a tool for \texttt{C} and \texttt{C++} programs, but there are other tools and other programming languages out there. For example, the \texttt{Rust} programming language is also compiled and comes shipped fully with its own automated build tools named cargo. So compiling \texttt{Rust} multi-file programs could be done using \texttt{cargo} instead of interacting natively with the shell \texttt{bash}. 
+
 
 %Seperator
 %Seperator
