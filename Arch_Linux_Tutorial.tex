@@ -46,18 +46,6 @@
 \newpage
 
 \begin{center}
-
-
-
-
-
-
-
-
-
-
-
-
 \section{Rationale}
 \begin{comment}
 \end{comment}
@@ -115,7 +103,7 @@ Users who want to trade customization power for convenience should just try anot
 %Seperator
 %Seperator
 %Seperator
-\section{Program Configuration}
+\section{Program Configurations}
 \begin{comment}
 \end{comment}
 In this section, we will learn how to configure basic programs. 
@@ -712,9 +700,50 @@ Remember that the \texttt{\#} commands are just comments, meanwhile the \texttt{
 %Seperator
 \section{Basic Package Management}
 \begin{comment}
-How to Install programs
-
 \end{comment}
+Arch linux supports $2$ primary ways of building and installing programs. Please remember that compiled programs need to be translated from source code (human-readable text) into machine instructions (binary). The first most common way of installing a program is called binary install. The second less commonly used way of installing a program is called build from source.
+%Seperator
+\\~\\When the user invokes a binary installation, pacman, the Arch Linux package manager fetches binaries from Arch linux servers. These binaries have already been compiled for the target machine architecture (x86-64). After the package manager fetches the binaries, it will install them in the somewhere in \texttt{/bin}  or \texttt{/usr} or other similar locations near the root directory \texttt{/}. Since compilation has already been performed by the package maintainers, a binary install is fast, as no compilation is needed. Since the binaries are compiled for a wide variety of machines, the compiled code might not be fully optimised for the target machine. However, this is insignificant in most cases. 
+%Seperator
+\\~\\The user can also invoke building from source. Building from source typically fetches source code from the AUR (Arch User Repository). Usually building from source is built using an AUR helper, such as yay. When the user invokes a build from source, the AUR helper, in our case yay, would roughly perform the steps shown below:
+\begin{enumerate}
+\item Create a directory inside \texttt{~/.cache/yay}, which will be used for building from source
+\item In the directory, download all the source code
+\item After downloading source code, begin compilation process
+\item After compilation, the binaries are made into an Arch package
+\item The Arch package manager, pacman would be invoked on the Arch package, still located in that directory 
+\item The Arch package manager, then installs the built package
+\end{enumerate}
+Of course, the above is a simplified idea of how building from source works. To read the full detail, read the Arch wiki on the ABS (Arch Build System). Those articles would provide the complete picture. Here we will discuss the basics of doing a binary installation. When considering a binary installation, the first thing to determine is whether the program we want is available in the Arch servers. To figure out if such a program named \texttt{PROG\_NAME} is available in the Arch servers, try the following command:
+\begin{lstlisting}
+pacman -Ss PROG_NAME
+\end{lstlisting}
+Let's understand the command above. The \texttt{-Ss} parts are called flags. The flags are used to specify to the package manager \texttt{pacman} that we would like to search for a program named \texttt{PROG\_NAME}. The command above should give a list of programs with similar names as \texttt{PROG\_NAME}. If the program does not exist, then consider a build from source install (this will be explained later). Otherwise, just proceed with the binary install. To do a binary installation of a program named \texttt{PROG\_NAME}, use the following command:
+\begin{lstlisting}
+sudo pacman -Syu PROG_NAME
+\end{lstlisting}
+Let's break down the command above. \texttt{sudo} is used to give the current user root privileges, without the \texttt{sudo} command, the user would not have enough authority to install programs in the system. \texttt{pacman} is the name of the package manager. \texttt{-Syu} are the flags which are passed to the package manager \texttt{pacman}. The \texttt{-Syu} flag is used to install the program specified and upgrade any outdated packages in the system. \texttt{PROG\_NAME} would be the name of the program passed to the package manager. Saying the command above should install the program painlessly. 
+%Seperator
+\\~\\After installing the program above, it is important to make sure that the installation was succesfull. One can immediately try using the program, but this method is depends on what the program really does. It is also possible to verify that the package manager has installed the program with the command below:
+\begin{lstlisting}
+pacman -Qe
+\end{lstlisting}
+This would give out all the packages installed on the machine. But it is quite unreadable because it writes out everything all at once. To make the list more readable, use the following command:
+\begin{lstlisting}
+pacman -Qe | less
+\end{lstlisting}
+What does \texttt{| less} do? The \texttt{|} operator is known as the pipe operator. The pipe operator redirects the output of the program \texttt{pacman -Qe} into the program \texttt{less}. The program \texttt{less} then puts whatever \texttt{pacman -Qe} produces in a kind of scrollable list. Pipes \texttt{|} as well as redirect operators \texttt{>} are very important for linux systems. The package named \texttt{PROG\_NAME} could be uninstalled using the following command:
+\begin{lstlisting}
+pacman -Rsu PROG_NAME
+\end{lstlisting}
+Building from source should be relatively easy as well, because most of the flags used for pacaman applies for the yay AUR helper as well. To search for packages:
+\begin{lstlisting}
+yay -Ss PROG_NAME
+\end{lstlisting}
+To install a specific program,
+\begin{lstlisting}
+yay PROG_NAME
+\end{lstlisting}
 
 %Seperator
 %Seperator
@@ -724,6 +753,27 @@ How to Install programs
 \section{Learning Program Usage}
 \begin{comment}
 \end{comment}
+You might be wondering if there is a way to quickly read the different flags for different programs without having to remember them all. Fortunately, there are a couple of ways to seek help when we forget how to use a particular command. For example, a pretty universal trick is to pass the \texttt{-h} flag or the \texttt{--help} flag to the program which is the "help" option. Usually a brief description on how to use the program would appear if we use the help flag. For example, if we forget how to use the basic \texttt{mv} command, we can read a brief description by typing:
+\begin{lstlisting}
+mv --help
+\end{lstlisting}
+If we forget how to use a file compression program such as gzip, then we can try getting an easy summary of program usage by typing:
+\begin{lstlisting}
+gzip --help
+\end{lstlisting}
+In general, a good idea is to try the following for an unknown program named \texttt{PROG\_NAME}:
+\begin{lstlisting}
+PROG_NAME --help
+\end{lstlisting}
+If we need more detail on how a particular program is used, we can consult the manual pages. Opening the manual pages is very easy. Suppose we have a program named \texttt{PROG\_NAME} we can see its manual page by using the command:
+\begin{lstlisting}
+man PROG_NAME
+\end{lstlisting}
+For example, if we want to read the manual page for the package manager, pacman, we can use the command:
+\begin{lstlisting}
+man pacman
+\end{lstlisting}
+Manual pages and help options are a great way to learn about a new program. The purpose of this document is to just teach the bare essentials on getting started with a Linux system. For anyone to be an expert at linux systems, they need to be able to learn by themselves by reading the necessary documentations. These documentations can be found through the manual pages, help options, Arch wiki, Official program page, github, and many other sources. 
 
 %Seperator
 %Seperator
@@ -757,6 +807,8 @@ How to Install programs
 \end{comment}
 The Arch Linux Wiki contains a lot of technical information. When trying to debug the system, the Arch Linux Wiki is a great rescource:
 \\\url{https://wiki.archlinux.org/} 
+\\~\\More information about the ABS (Arch Build System):
+\\\url{https://wiki.archlinux.org/title/Arch_Build_System} 
 %Seperator
 %Seperator
 %Seperator
