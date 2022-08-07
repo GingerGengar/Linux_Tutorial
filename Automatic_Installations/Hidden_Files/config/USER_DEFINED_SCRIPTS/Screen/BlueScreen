@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#Author: Hyahoos
+
+#Tint Screen
+redshift -P -O 6000

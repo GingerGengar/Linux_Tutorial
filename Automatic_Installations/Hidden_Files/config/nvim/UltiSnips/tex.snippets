@@ -1,0 +1,477 @@
+#############################################################################
+#Context
+#############################################################################
+#Allows Contextual Snippet Expansion
+global !p
+def math():
+    return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+
+def comment(): 
+    return vim.eval('vimtex#syntax#in_comment()') == '1'
+
+def env(name):
+    [x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
+    return x != '0' and x != '0'
+
+endglobal
+#############################################################################
+# Environment Convenience
+#############################################################################
+#bmatrix environment
+snippet bmat "bmatrix" wA
+bmatrix
+endsnippet
+
+#pmatrix environment
+snippet pmat "pmatrix" wA
+pmatrix
+endsnippet
+
+#align
+snippet leqn "align*" wA
+align*
+endsnippet
+
+#equation
+snippet en "equation" w
+equation
+endsnippet
+
+#displaystyle
+snippet dst "displaystyle" wA
+\displaystyle
+endsnippet
+
+#lstlisting
+snippet lst "lstlisting" wA
+lstlisting
+endsnippet
+
+#language
+snippet lang "language" wA
+language
+endsnippet
+
+#Dynamic Code Insertion
+snippet dci "\lstinputlisting" wA
+\\lstinputlisting$0
+endsnippet
+#############################################################################
+# Multi-Inpt Math Operations
+#############################################################################
+#fraction insert
+context "math()"
+snippet fri "\frac{}{}" iA
+\frac{$1}{$2}$0
+endsnippet
+
+#Explicit Equations
+snippet ee "$$ $$" A
+$$$1$$$0
+endsnippet
+
+#Implicit Equations
+snippet ie "Math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+#For LaTex Environments
+snippet beg "begin{} / end{}" w
+\begin{$1}
+$2
+\end{$1}$0
+endsnippet
+
+#Integrate
+context "math()"
+snippet int "\int^{}_{} \,d " i
+\int^{$1}_{$2} $3 \,d$0
+endsnippet
+
+#Derivative
+context "math()"
+snippet deriv "\frac{d}{d } " iA
+\frac{d}{d $1}$0
+endsnippet
+
+#Partial Derivative
+context "math()"
+snippet pder "" iA
+\frac{\partial}{\partial $1}$0
+endsnippet
+
+#sigma notations
+context "math()"
+snippet sum "\sum^{ }_{ }\left[ \right] " iA
+\sum^{$1}_{$2}\left[$3\right]$0
+endsnippet
+
+#product notations
+context "math()"
+snippet prod "\prod^{ }_{ }\left[ \right]" iA
+\prod^{$1}_{$2}\left[$3\right]$0
+endsnippet
+
+#limit notations
+context "math()"
+snippet lim "lim_{}\left[\right]" iA
+\lim_{$1}\left[$2\right]$0
+endsnippet
+
+#overset
+context "math()"
+snippet ov "\overse{}{}" iA
+\overset{$1}{$2}$0
+endsnippet
+
+#############################################################################
+# Single-Input Math Operators
+#############################################################################
+#bar
+context "math()"
+snippet ba "\bar{}" i
+\bar{$1}$0
+endsnippet
+
+#hat
+context "math()"
+snippet hat "\hat{}" iA
+\hat{$1}$0
+endsnippet
+
+#subscript
+context "math()"
+snippet _ "_{}" iA
+_{$1}$0
+endsnippet
+
+#superscript
+context "math()"
+snippet ^ "^{}" iA
+^{$1}$0
+endsnippet
+
+#Specifier A
+context "math()"
+snippet ump "{}^{}" iA
+{}^{$1}$0
+endsnippet
+
+#Specifier C
+context "math()"
+snippet lmp "{}_{}" iA
+{}_{$1}$0
+endsnippet
+
+#Laplace Transform
+context "math()"
+snippet lapl "Fancy L lap transform" iA
+\mathcal{L}\left[$1\right]$0
+endsnippet
+
+#double bar
+context "math()"
+snippet db "\bar{\bar{}}" i
+\bar{\bar{$1}}$0
+endsnippet
+
+#not equals sign
+context "math()"
+snippet nq " \neq " iA
+$1 \neq $0
+endsnippet
+
+#equals sign
+context "math()"
+snippet = " = " iA
+$1 = $0
+endsnippet
+
+#less than equals sign
+context "math()"
+snippet leq " \leq " iA
+$1 \leq $0
+endsnippet
+
+#greater than equals sign
+context "math()"
+snippet geq " \geq " iA
+$1 \geq $0
+endsnippet
+
+#to sign
+context "math()"
+snippet to " \to " iwA
+$1 \to $0
+endsnippet
+
+#level 1 bracket
+context "math()"
+snippet () "\left( \right)" i
+\left($1\right)$0
+endsnippet
+
+#level 2 bracket
+context "math()"
+snippet [] "\left[ \right]" i
+\left[$1\right]$0
+endsnippet
+
+#level 3 bracket
+context "math()"
+snippet {} "\left\{ \right\}" i
+\left\\{$1\right\\}$0
+endsnippet
+
+#Single dot
+context "math()"
+snippet dot "\dot" iA
+\dot{$1}$0
+endsnippet
+
+#Double Dot
+context "math()"
+snippet ddo "\ddot" iA
+\ddot{$1}$0
+endsnippet
+
+#Square root
+context "math()"
+snippet sqr "\sqrt{}" iA
+\sqrt{$1}$0
+endsnippet
+
+#exponential
+context "math()"
+snippet exp "\exp{}" iA
+\exp
+endsnippet
+
+#############################################################################
+# Symbolic Math Operators
+#############################################################################
+#Partial
+context "math()"
+snippet pa "\partial" i
+\partial
+endsnippet
+
+#Gradient
+context "math()"
+snippet na "\nabla" i
+\nabla
+endsnippet
+
+#cross-product
+context "math()"
+snippet cr "\times" i
+\times
+endsnippet
+
+#dot-product
+context "math()"
+snippet dp "\cdot" wi
+\cdot
+endsnippet
+#############################################################################
+#Greek Letters
+#############################################################################
+#alpha
+context "math()"
+snippet alp "\alpha" i
+\alpha
+endsnippet
+
+#beta
+context "math()"
+snippet be "\beta" i
+\beta
+endsnippet
+
+#gamma
+context "math()"
+snippet gam "\gamma" i
+\gamma
+endsnippet
+
+#Gamma
+context "math()"
+snippet Gam "\Gamma" i
+\Gamma
+endsnippet
+
+#theta
+context "math()"
+snippet the "\theta" iA
+\theta
+endsnippet
+
+#Theta
+context "math()"
+snippet Thet "\Theta" iA
+\Theta
+endsnippet
+
+#omega
+context "math()"
+snippet w "\omega" wi
+\omega
+endsnippet
+
+#Omega
+context "math()"
+snippet W "\Omega" wi
+\Omega
+endsnippet
+
+#phi
+context "math()"
+snippet ph "\phi" i
+\phi
+endsnippet
+
+#Phi
+context "math()"
+snippet Ph "\Phi" i
+\Phi
+endsnippet
+
+#psi
+context "math()"
+snippet ps "\psi" i
+\psi
+endsnippet
+
+#Psi
+context "math()"
+snippet Ps "\Psi" i
+\Psi
+endsnippet
+
+#lambda
+context "math()"
+snippet lam "lambda" i
+\lambda
+endsnippet
+
+#epsilon
+context "math()"
+snippet ep "\epsilon" i
+\epsilon
+endsnippet
+
+#rho
+context "math()"
+snippet rh "\rho" i
+\rho
+endsnippet
+
+#delta
+context "math()"
+snippet del "\delta" i
+\delta
+endsnippet
+
+#Delta
+context "math()"
+snippet Del "\Delta" i
+\Delta
+endsnippet
+
+#xi
+context "math()"
+snippet xii "\xi" iA
+\xi
+endsnippet
+
+#eta
+context "math()"
+snippet et "\eta" i
+\eta
+endsnippet
+
+#zeta
+context "math()"
+snippet zett "\zeta" iA
+\zeta
+endsnippet
+
+#sigma
+context "math()"
+snippet sig "\sigma" iA
+\sigma
+endsnippet
+
+#Infinity
+context "math()"
+snippet inf "\infinity" i
+\infty
+endsnippet
+
+#############################################################################
+# Document Administrative
+#############################################################################
+#separators
+snippet %S "%Seperator" bA
+%Seperator
+endsnippet
+
+#label
+snippet ll "\label" wA
+\label{$1}$0
+endsnippet
+
+#reference
+context "math()"
+snippet ref "\ref" iA
+\ref{$1}$0
+endsnippet
+
+#Spacing
+context "math()"
+snippet qqu " \quad,\quad " iA
+$1\quad,\quad$0
+endsnippet
+
+#computer variables
+snippet cva "\ttfamily{}" wA
+\texttt{$1} $0
+endsnippet
+
+#computer variables
+snippet url "\url{}" wA
+\url{$1} $0
+endsnippet
+
+#computer variables
+snippet bks "\backslash" wA
+\textbackslash 
+endsnippet
+
+#Basic Image Insertion
+snippet img "\\~\\\includegraphics[scale=]{}" bA
+\\\~\\\\\includegraphics[scale=$1]{$2}$0
+endsnippet
+
+#Advanced Image Insertion
+snippet aimi "" bA
+\\begin{figure}[H]\\centering
+\\includegraphics[scale=$1]{$2}
+\\caption{$3}
+\\label{$4}
+\\end{figure}$0
+endsnippet
+
+#Basic Answer Boxing
+snippet eqbox "" bA
+\\\~\\\\\fbox{$\displaystyle $1$}$0
+endsnippet
+#############################################################################
+#End
+#############################################################################
+# :call UltiSnips#RefreshSnippets()

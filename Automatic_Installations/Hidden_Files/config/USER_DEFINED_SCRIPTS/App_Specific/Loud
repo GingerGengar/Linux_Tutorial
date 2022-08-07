@@ -1,0 +1,3 @@
+#!/bin/bash
+asusctl profile -P Performance
+asusctl profile -p

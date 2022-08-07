@@ -1,0 +1,17 @@
+Programs+=(
+#####################################################################################################
+# Technical Writing
+#####################################################################################################
+
+#Text editor
+neovim
+
+#LaTex Compiler
+texlive
+
+#PDF reader
+zathura
+zathura-cb
+zathura-djvu
+zathura-pdf-mupdf
+)

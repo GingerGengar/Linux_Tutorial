@@ -1,0 +1,19 @@
+Programs+=(
+#Image Manipulation program
+imagemagick
+
+#File directory visualization
+lf
+
+#Gui for audio control
+pavucontrol
+
+#Root privileges
+sudo
+
+#Clipboard
+xclip
+
+#Below is a manga reader and downloader
+hakuneko-desktop
+)

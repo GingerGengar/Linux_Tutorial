@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#Author: Hyahoos
+cd /home/hyahoos/Documents/Work/Academic
+ls
+$SHELL
+
+

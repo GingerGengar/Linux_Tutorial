@@ -1,0 +1,42 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+
+
+# User Defined Bash Scripts
+UDF="/home/hyahoos/.config/USER_DEFINED_SCRIPTS/"
+PATH="$UDF/App_Specific:${PATH}"
+PATH="$UDF/File_Navigation:${PATH}"
+PATH="$UDF/Crappy_Scripts:${PATH}"
+PATH="$UDF/Image_Utilities:${PATH}"
+PATH="$UDF/Screen:${PATH}"
+PATH="$UDF/System:${PATH}"
+PATH="$UDF/Theme:${PATH}"
+PATH="$UDF/File_Related:${PATH}"
+PATH="$UDF:${PATH}"
+export PATH
+
+#Directory Aliases
+alias guideplace='cd /home/hyahoos/Documents/Guides && ls'
+alias ultiplace='cd /home/hyahoos/.config/nvim/UltiSnips && ls'
+alias workplace='cd /home/hyahoos/Documents/Academic && ls'
+alias vidprod='cd /home/hyahoos/Archive_Drive/Media/Productive && ls'
+alias vident='cd /home/hyahoos/Archive_Drive/Media/Entertainment/Music && ls'
+alias scriptplace='cd /home/hyahoos/.config/USER_DEFINED_SCRIPTS && ls'
+alias bookplace='cd /home/hyahoos/Documents/Books && ls'
+alias programplace='cd /home/hyahoos/Research/Programming && ls'
+alias downgrades='cd /var/cache/pacman/pkg/ && ls|less'
+
+#Purdue VPN (Delete This Later)
+alias PurdueVPN='sudo openconnect webvpn.purdue.edu'
+
+#ECE 26400 (Delete This Later)
+#alias gcc='gcc -g -std=c11 -Wall -Wshadow -Wvla -Werror -pedantic'
+#alias ECECnnct='connect hsuganda@ecegrid-thin4.ecn.purdue.edu'
+#alias FileECE='sftp hsuganda@ecegrid-thin4.ecn.purdue.edu'

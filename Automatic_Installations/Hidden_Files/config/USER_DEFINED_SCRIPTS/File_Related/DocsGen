@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in $( ls *$1 ); do 
+    touch $(echo $i | cut -f 1 -d '.').tex
+done
+

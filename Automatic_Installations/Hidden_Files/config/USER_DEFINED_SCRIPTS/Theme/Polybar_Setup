@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#Author: Hyahoos
+
+#Kills all instances of existing polybar
+killall -q polybar
+
+#Write Logs
+echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log /tmp/polybar3.log
+
+#Launch Bar
+polybar bar_left & polybar bar_center & polybar bar_right
+

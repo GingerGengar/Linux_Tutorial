@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#Author: Hyahoos
+
+#Connect via ssh to some server
+kitty +kitten ssh $1

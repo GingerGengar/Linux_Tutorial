@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#Author: Hyahoos
+
+#Takes Screenshot using xorg-xwd and outputs to directory
+xwd -root > ~/Utility/Shots/Screenshot.xwd
+
+#Converts from .xwd to png format using imagemagick
+convert ~/Utility/Shots/Screenshot.xwd ~/Utility/Shots/Screenshot.png
+
+#Removes the .xwd file
+rm ~/Utility/Shots/Screenshot.xwd
+
+

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#Author: Hyahoos
+
+#Location init.vim
+youtube-dl --geo-bypass --write-sub --all-subs --sub-format vtt --no-playlist -f bestvideo+bestaudio --merge-output-format mkv $1
+

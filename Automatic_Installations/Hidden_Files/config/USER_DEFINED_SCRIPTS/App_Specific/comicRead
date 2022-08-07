@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm Readable.zip
+zip Readable.zip *  
+ReadPDF Readable.zip

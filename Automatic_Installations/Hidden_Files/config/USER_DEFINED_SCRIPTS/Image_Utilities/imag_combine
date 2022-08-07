@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#Author: Hyahoos
+
+magick [^c]*g -append combined.jpg
+
+
+

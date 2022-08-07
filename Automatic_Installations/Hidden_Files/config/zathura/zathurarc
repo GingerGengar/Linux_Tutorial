@@ -1,0 +1,20 @@
+#Zathura Config File
+#Hans C. Suganda
+
+#Key-Bindings
+map <C-m> feedkeys ":exec zathura $FILE<Return>"
+
+#Colors
+set default-bg "#262626"
+set inputbar-bg "#f79400"
+set inputbar-fg "#000000"
+set statusbar-bg "#ffc88a"
+set statusbar-fg "#000000"
+set notification-bg "#fb5d00"
+set notification-fg "#000000"
+set highlight-color "#f6ff3f"
+set highlight-active-color "#fb5d00"
+
+#Others
+set show-scrollbars true
+set statusbar-v-padding

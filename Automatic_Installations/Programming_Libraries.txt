@@ -1,0 +1,13 @@
+Programs+=(
+#####################################################################################################
+# Programming Libraries
+#####################################################################################################
+#Parallel programming implementation
+openmp
+
+#Benchmark programs
+perf
+
+#Python intepreter
+python 
+)

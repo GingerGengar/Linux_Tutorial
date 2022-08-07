@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#Author: Hyahoos
+Start zathura "$@"

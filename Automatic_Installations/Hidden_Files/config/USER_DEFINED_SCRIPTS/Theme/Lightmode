@@ -1,0 +1,43 @@
+#!/bin/bash
+
+#Author: Hyahoos
+
+#Common Directories
+CONFIG="/home/hyahoos/.config"
+
+#Kitty
+KITTY=$CONFIG/kitty
+sed -i 's/background .*/background #fbf1c7/g' $KITTY/colors.conf
+sed -i 's/foreground .*/foreground #3c3836/g' $KITTY/colors.conf
+sed -i 's/cursor .*/cursor #928374/g' $KITTY/colors.conf
+sed -i 's/selection_background .*/selection_background #928374/g' $KITTY/colors.conf
+sed -i 's/selection_foreground .*/selection_foreground #3c3836/g' $KITTY/colors.conf
+sed -i 's/active_border_color .*/active_border_color #458588/g' $KITTY/kitty.conf
+sed -i 's/inactive_border_color .*/inactive_border_color #cc241d/g' $KITTY/kitty.conf
+sed -i 's/active_tab_background .*/active_tab_background #98971a/g' $KITTY/kitty.conf
+sed -i 's/inactive_tab_background .*/inactive_tab_background #d79921/g' $KITTY/kitty.conf
+
+#Conky
+CONKY=$CONFIG/conky
+sed -i "s/default_color = .*/default_color = '3c3836',/g" $CONKY/conky.conf
+sed -i "s/own_window_colour = .*/own_window_colour = 'fbf1c7',/g" $CONKY/conky.conf
+sed -i "s/color1 = .*/color1 = 'cc241d',/g" $CONKY/conky.conf
+sed -i "s/color2 = .*/color2 = '689d6a',/g" $CONKY/conky.conf
+sed -i "s/color3 = .*/color3 = '98971a',/g" $CONKY/conky.conf
+sed -i "s/color4 = .*/color4 = '458588',/g" $CONKY/conky.conf
+
+#Zathura
+ZATHURA=$CONFIG/zathura
+sed -i 's/default-bg .*/default-bg "#fbf1c7"/g' $ZATHURA/zathurarc
+sed -i 's/inputbar-bg .*/inputbar-bg "#cc241d"/g' $ZATHURA/zathurarc
+sed -i 's/statusbar-bg .*/statusbar-bg "#d79921"/g' $ZATHURA/zathurarc
+sed -i 's/notification-bg .*/notification-bg "#b16286"/g' $ZATHURA/zathurarc
+sed -i 's/highlight-color .*/highlight-color "#98971a"/g' $ZATHURA/zathurarc
+sed -i 's/highlight-active-color .*/highlight-active-color "#79740e"/g' $ZATHURA/zathurarc
+
+#Polybar
+POLY=$CONFIG/
+#sed -i 's/ .*/ /g' $POLY/
+
+#Customary End
+echo "Light Theme Applied..."

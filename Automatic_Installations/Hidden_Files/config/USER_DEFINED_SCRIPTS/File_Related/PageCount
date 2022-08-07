@@ -1,0 +1,2 @@
+#!/bin/bash
+pdfinfo $1 | awk '/^Pages:/ {print $2}'

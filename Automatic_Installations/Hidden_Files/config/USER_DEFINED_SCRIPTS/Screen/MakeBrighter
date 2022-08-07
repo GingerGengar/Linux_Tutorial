@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#Author: Hyahoos
+
+#Increase Brightness
+light -A 5
+

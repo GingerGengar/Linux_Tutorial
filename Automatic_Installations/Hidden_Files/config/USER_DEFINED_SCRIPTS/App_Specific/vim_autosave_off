@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#Author: Hyahoos
+
+#Location init.vim
+VIMRC="/home/hyahoos/.config/nvim/init.vim"
+
+sed -i 's/autocmd TextChanged,TextChangedI <buffer> write/"autocmd TextChanged,TextChangedI <buffer> write/g' $VIMRC

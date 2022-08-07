@@ -1,0 +1,42 @@
+#Produce preprocesser defines
+snippet def "#define ..." b
+#define $0
+endsnippet
+
+#Produce include guards
+snippet head "Produce Headers" b
+#ifndef $1
+#define $1
+$0
+#endif
+endsnippet
+
+#Produce a new main file
+snippet basicm "Basic Main File" b
+int main(void){
+$0
+return 0;}
+endsnippet
+
+#Produce a more complex version of main
+snippet fullm "" b
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]) {
+$0
+return EXIT_SUCCESS;}
+endsnippet
+
+#Produce a function and its prototype
+snippet func "Make New Function" b
+$1 $2 ($3){
+	$0
+	return $4;}
+endsnippet
+
+#Print something:
+snippet show "" 
+printf("$1", $2);$0
+endsnippet
+

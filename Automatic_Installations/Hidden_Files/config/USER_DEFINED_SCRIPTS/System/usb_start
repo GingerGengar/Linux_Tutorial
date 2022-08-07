@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#Author: Hyahoos
+
+#Mount USB into /mnt
+sudo mount /dev/sdb1 /mnt 
+cd /mnt/
+$SHELL
