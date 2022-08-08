@@ -5,7 +5,4 @@ Programs+=(
 
 #A Free software CAD application
 freecad
-
-#Airfoil and Wing Simulator
-xflr5
 )

@@ -60,7 +60,10 @@ pulseaudio-lirc
 
 #X windows system
 #Drivers
-xf86
+xf86-video-fbdev
+xf86-video-intel
+xf86-video-vesa
+
 #Real stuff theres too many
 xorg
 

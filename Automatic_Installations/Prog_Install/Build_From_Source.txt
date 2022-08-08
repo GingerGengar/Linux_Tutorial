@@ -10,3 +10,12 @@ cbonsai-git
 #Video Player
 mpv-full-build-git
 
+#Airfoil and Wing Simulator
+xflr5
+
+#File directory visualization
+lf
+
+#Below is a manga reader and downloader
+hakuneko-desktop
+

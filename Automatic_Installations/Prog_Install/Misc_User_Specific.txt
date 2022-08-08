@@ -2,9 +2,6 @@ Programs+=(
 #Image Manipulation program
 imagemagick
 
-#File directory visualization
-lf
-
 #Gui for audio control
 pavucontrol
 
@@ -14,6 +11,4 @@ sudo
 #Clipboard
 xclip
 
-#Below is a manga reader and downloader
-hakuneko-desktop
 )
