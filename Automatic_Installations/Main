@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd Prog_Install && Installs && cd ..
+cd Hidden_Files && Installs && cd ..
+echo "Ricing Complete..."

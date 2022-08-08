@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mv bashrc ~/.bashrc
+mv xinitrc ~/.xinitrc
+mv config ~/.config
