@@ -66,6 +66,7 @@ xf86-video-vesa
 
 #Real stuff theres too many
 xorg
+xorg-xinit
 
 #File Writing but with progress bar
 pv

@@ -5,11 +5,11 @@ Programs+=(
 
 #Text editor
 neovim
+python-pynvim
 
 #LaTex Compiler
 texlive-bibtexextra
 texlive-core
-texlive-fontsextra
 texlive-formatsextra
 texlive-games
 texlive-humanities

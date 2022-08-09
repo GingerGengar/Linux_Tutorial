@@ -184,28 +184,28 @@ exec_always --no-startup-id $HOME/.config/USER_DEFINED_SCRIPTS/Theme/Polybar_Set
 
 # enter fullscreen mode for the focused container and hide polybar
 bindsym $mod+f fullscreen toggle
-#; exec /home/hyahoos/.config/USER_DEFINED_SCRIPTS/Theme/Polybar_Hide
+#; exec ~/.config/USER_DEFINED_SCRIPTS/Theme/Polybar_Hide
 
 # Control Light and Dark Theme
-bindsym $mod2+d exec --no-startup-id /home/hyahoos/.config/USER_DEFINED_SCRIPTS/Theme/Darkmode
-bindsym $mod2+l exec --no-startup-id /home/hyahoos/.config/USER_DEFINED_SCRIPTS/Theme/Lightmode
+bindsym $mod2+d exec --no-startup-id ~/.config/USER_DEFINED_SCRIPTS/Theme/Darkmode
+bindsym $mod2+l exec --no-startup-id ~/.config/USER_DEFINED_SCRIPTS/Theme/Lightmode
 
 # Control Brightness of Screen
-bindsym $mod2+F8 exec --no-startup-id /home/hyahoos/.config/USER_DEFINED_SCRIPTS/Screen/MakeBrighter
-bindsym $mod2+F7 exec --no-startup-id /home/hyahoos/.config/USER_DEFINED_SCRIPTS/Screen/MakeDarker
+bindsym $mod2+F8 exec --no-startup-id ~/.config/USER_DEFINED_SCRIPTS/Screen/MakeBrighter
+bindsym $mod2+F7 exec --no-startup-id ~/.config/USER_DEFINED_SCRIPTS/Screen/MakeDarker
 
 # Screen Capture
-bindsym $mod2+s exec --no-startup-id /home/hyahoos/.config/USER_DEFINED_SCRIPTS/Image_Utilities/Ss
+bindsym $mod2+s exec --no-startup-id ~/.config/USER_DEFINED_SCRIPTS/Image_Utilities/Ss
 
 # Control Volume
 
 # Control Screen Protection
-bindsym $mod2+y exec --no-startup-id /home/hyahoos/.config/USER_DEFINED_SCRIPTS/Screen/TintScreen
-bindsym $mod2+b exec --no-startup-id /home/hyahoos/.config/USER_DEFINED_SCRIPTS/Screen/BlueScreen
+bindsym $mod2+y exec --no-startup-id ~/.config/USER_DEFINED_SCRIPTS/Screen/TintScreen
+bindsym $mod2+b exec --no-startup-id ~/.config/USER_DEFINED_SCRIPTS/Screen/BlueScreen
 
 # Control vim autosave on/off
-bindsym $mod2+o exec --no-startup-id /home/hyahoos/.config/USER_DEFINED_SCRIPTS/App_Specific/vim_autosave_on
-bindsym $mod2+f exec --no-startup-id /home/hyahoos/.config/USER_DEFINED_SCRIPTS/App_Specific/vim_autosave_off
+bindsym $mod2+o exec --no-startup-id ~/.config/USER_DEFINED_SCRIPTS/App_Specific/vim_autosave_on
+bindsym $mod2+f exec --no-startup-id ~/.config/USER_DEFINED_SCRIPTS/App_Specific/vim_autosave_off
 
 # You can also use any non-zero value if you'd like to have a border
 for_window [class=".*"] border pixel 0
