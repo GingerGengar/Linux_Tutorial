@@ -9,10 +9,12 @@
 \usepackage{array}
 \usepackage{graphicx}
 
+
+
 \geometry{portrait, margin= 0.43in}
 
-\def\tabsize{1.9cm}
-\def\ltabsize{1.4cm}
+\def\tabsize{6.7cm}
+\def\ltabsize{7.9cm}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -800,7 +802,55 @@ Manual pages and help options are a great way to learn about a new program. The 
 %Seperator
 %Seperator
 %Seperator
+\subsubsection{Terminal Related}
+\begin{comment}
+\end{comment}
+\begin{tabular}{|m{\tabsize}|m{\ltabsize}|}
+\hline
+\texttt{super + enter} & Opens a new terminal instance \\ \hline
+\texttt{ctrl + shift + w} & Quits a window \\ \hline
+\texttt{ctrl + shift + t} & Opens a new tab \\ \hline
+\texttt{ctrl + shift + left or right} & Goes to the left/right tab \\ \hline
+\texttt{ctrl + shift + enter} & Opens a new terminal window \\ \hline
+\texttt{ctrl + shift + ] or [} & Goes to right or left window \\ \hline
+\texttt{ctrl + t} & Makes a new tab adjacent to current tab \\ \hline
+\end{tabular}
+
 %Seperator
+%Seperator
+%Seperator
+\subsubsection{Window Manager Related}
+\begin{comment}
+\end{comment}
+\begin{tabular}{|m{\tabsize}|m{\ltabsize}|}
+\hline
+\texttt{super + Num} & Go the the \texttt{Num} workspace \\ \hline
+\texttt{super + left or right} & Go to the left or right window in a workspace \\ \hline
+\texttt{super + shift + left or right} & move the current window left or right \\ \hline
+\texttt{super + shift + up or down} & move the current window up or down \\ \hline
+\texttt{super + shift Num} & Move the current window to the \texttt{Num} workspace \\ \hline
+\texttt{super + shift + q} & Kill a particular window \\ \hline
+\end{tabular}
+
+%Seperator
+%Seperator
+%Seperator
+\subsubsection{Brightness Control}
+\begin{comment}
+\end{comment}
+\begin{tabular}{|m{\tabsize}|m{\ltabsize}|}
+\hline
+\texttt{alt + y} & Makes screen yellow \\ \hline
+\texttt{alt + b} & Makes screen blue \\ \hline
+\texttt{alt + F7} & Dims the screen \\ \hline
+\texttt{alt + F8} & Brightens Screen \\ \hline
+\end{tabular}
+
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\newpage
 \subsection{Further Reading}
 \begin{comment}
 \end{comment}
@@ -855,7 +905,6 @@ Here are some Linux setups that might help inspire (these are subjective assesme
 
 \begin{comment}
 TODO :The automatic installation does not cover all the way till the base arch linux install
-Summary of the keybindings are not done
 Not all of the user specific scripts have been fully explained
 The screen brightness light breaks, and is not really valid, maybe use xrandr?
 The rice isn't that good to be honest.
