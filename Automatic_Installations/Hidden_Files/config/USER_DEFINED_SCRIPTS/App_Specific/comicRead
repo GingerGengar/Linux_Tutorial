@@ -1,5 +1,5 @@
 #!/bin/bash
 
-rm Readable.zip
+rm Readable.zip 2>/dev/null
 zip Readable.zip *  
 ReadPDF Readable.zip

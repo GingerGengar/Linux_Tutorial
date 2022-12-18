@@ -144,6 +144,12 @@ snippet hat "\hat{}" iA
 \hat{$1}$0
 endsnippet
 
+#tilde
+context "math()"
+snippet til "\tilde{}" iA
+\tilde{$1}$0
+endsnippet
+
 #subscript
 context "math()"
 snippet _ "_{}" iA
@@ -192,6 +198,12 @@ snippet = " = " iA
 $1 = $0
 endsnippet
 
+#approximate sign
+context "math()"
+snippet apr " \approx " iA
+$1 \approx $0
+endsnippet
+
 #less than equals sign
 context "math()"
 snippet leq " \leq " iA
@@ -238,6 +250,18 @@ endsnippet
 context "math()"
 snippet ddo "\ddot" iA
 \ddot{$1}$0
+endsnippet
+
+#Triple Dot
+context "math()"
+snippet ddd "\dddot" iA
+\dddot{$1}$0
+endsnippet
+
+#Vertical Dots
+context "math()"
+snippet vdo "\vdots" iA
+\vdots$0
 endsnippet
 
 #Square root
@@ -407,6 +431,12 @@ snippet sig "\sigma" iA
 \sigma
 endsnippet
 
+#sigma
+context "math()"
+snippet kap "\kappa" iA
+\\kappa 
+endsnippet
+
 #Infinity
 context "math()"
 snippet inf "\infinity" i
@@ -443,7 +473,12 @@ snippet cva "\ttfamily{}" wA
 \texttt{$1} $0
 endsnippet
 
-#computer variables
+#Normal text inside an equation
+snippet txt "\text{}" wA
+\text{$1} $0
+endsnippet
+
+#Links
 snippet url "\url{}" wA
 \url{$1} $0
 endsnippet
@@ -467,9 +502,146 @@ snippet aimi "" bA
 \\end{figure}$0
 endsnippet
 
+#Inkscape Image Insertion
+snippet inki "" bA
+\\begin{figure}[H]\\centering
+\\def\\svgwidth{$1}
+\\import{$2}{$3}
+\\caption{$4}
+\\label{$5}
+\\end{figure}$0
+endsnippet
+
 #Basic Answer Boxing
 snippet eqbox "" bA
 \\\~\\\\\fbox{$\displaystyle $1$}$0
+endsnippet
+
+#############################################################################
+# Document Sectioning
+#############################################################################
+#This is the way to make sections
+snippet seca "" bA
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\section{$1}
+\begin{comment}
+\end{comment}
+$0
+endsnippet
+
+#This is to make subsections
+snippet secb "" bA
+%Seperator
+%Seperator
+%Seperator
+%Seperator
+\subsection{$1}
+\begin{comment}
+\end{comment}
+$0
+endsnippet
+
+#This is to make subsections
+snippet secc "" bA
+%Seperator
+%Seperator
+%Seperator
+\subsubsection{$1}
+\begin{comment}
+\end{comment}
+$0
+endsnippet
+#############################################################################
+#New Document Template
+#############################################################################
+snippet NewDocs "Make the Template for a new document" bA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Type of Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper, 12pt]{report}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Various User-Defined Variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Sizing for images
+\def\size{0.98}
+\def\sizes{0.23}
+%Sizing for Tables
+\def\tabsize{2.4cm}
+\def\ltabsize{5.1cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% List of all used packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{esint}
+\usepackage{comment}
+\usepackage{amssymb}
+\usepackage{commath}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{float}
+\usepackage{import}
+\usepackage{transparent}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Miscellaneous Configurations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{portrait, margin= 0.5in}
+\setcounter{MaxMatrixCols}{30}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Configuring Code Block aesthetics
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset{
+	columns=fullflexible,
+	frame=single,
+	breaklines=true,
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	keepspaces=true,                 
+	numbersep=5pt,                  
+	showspaces=false,               
+	showtabs=false,                  
+	tabsize=2,
+	showstringspaces=false,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title of Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{$1}
+\author{$2}
+\date{$3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\begin{center}
+$0
+\end{center}
+\end{document}
 endsnippet
 #############################################################################
 #End

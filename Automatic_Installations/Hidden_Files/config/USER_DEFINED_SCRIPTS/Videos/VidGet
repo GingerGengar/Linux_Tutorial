@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#Author: Hyahoos
+
+#Flags that allow subtitles to be downloaded all
+subtitles="--write-sub --all-subs --sub-format vtt"
+
+#Download only a single video from a playlist
+single_vid="--no-playlist "
+
+#Quality and Output Format
+form="-f bestvideo+bestaudio --merge-output-format mkv"
+
+#Make a Directory and go into it
+mkdir $2 2>/dev/null
+cd $2
+
+#Call to youtube-dl passing all flags, downloading video
+youtube-dl --geo-bypass $subtitles $single_vid $form $1
+
+#Get out of that video directory
+cd ..

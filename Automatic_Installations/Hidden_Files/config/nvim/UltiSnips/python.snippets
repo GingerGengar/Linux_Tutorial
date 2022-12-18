@@ -1,0 +1,62 @@
+#Give formatting details for new file
+snippet NewDocs "" bA
+#!/bin/python
+###########################################################################################
+#File-Name: $1
+#Author: $2
+#Use: $3
+###########################################################################################
+$0
+###########################################################################################
+#End
+###########################################################################################
+endsnippet
+
+#Give formatting details for a new section
+snippet newform "" bA
+###########################################################################################
+#$1
+###########################################################################################
+$0
+endsnippet
+
+#Importing Libraries
+snippet im "Import Libarries" b
+import $1 as $0
+endsnippet
+
+#Making new Sympy symbols
+snippet symb "Make a new sympy symbol" w
+$1 = sy.symbols('$1')$0
+endsnippet
+
+#Make new Sympy functions
+snippet fsym "Make a new sympy symbol" bA
+$1 = sy.Function('$1')($2)$0
+endsnippet
+
+#Make a new function 
+snippet func "Make a new function" b
+def $1($2):
+	$3
+	return $4;$0
+endsnippet
+
+#Plotting in matplotlib
+snippet NewPlot "Plot functions in Matplotlib" bA
+#Subplot command to handle multiple plots
+$1, $2 = plt.subplots()
+#Data input Region for various plots
+$2.plot($6, $7, '-k', label='$8')
+#Various Description Titles of the plot
+$2.set_xlabel('$3') #x-axis titles
+$2.set_ylabel('$4') #y-axis titles
+$2.set_title('$5') #Title of Plots
+#Enable Legends and Grids
+$2.legend(); $2.grid()
+
+#Show the plot
+plt.show()$0
+endsnippet
+
+#:call UltiSnips#RefreshSnippets()

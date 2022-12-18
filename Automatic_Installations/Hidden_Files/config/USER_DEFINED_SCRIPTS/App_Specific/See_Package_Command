@@ -1,0 +1,2 @@
+#!/bin/bash
+pacman -Ql $1 | grep /bin/

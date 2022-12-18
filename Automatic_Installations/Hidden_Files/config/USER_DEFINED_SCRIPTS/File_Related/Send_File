@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#Author: Hyahoos
+
+#For Recursive, folder capabilities
+flags="-r"
+
+#For being Verbose
+flags=$flags" -v"
+
+#Only Reupload changed files
+flags=$flags" -u"
+
+#Do Partial Uploads, so shaky internet doesn't matter
+flags=$flags" -P"
+
+#Preserve symbollic links and permissions for archiving
+flags=$flags" -a"
+
+#Upload all of the files using rsync with the appropriate flags
+rsync $flags $1 $2

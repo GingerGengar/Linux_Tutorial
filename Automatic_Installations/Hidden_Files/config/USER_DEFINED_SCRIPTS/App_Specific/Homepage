@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#Start the terminals first
+3TerminalStart
+
+#Run All Relevant Configuration programs on Terminals
+3TerminalConfig

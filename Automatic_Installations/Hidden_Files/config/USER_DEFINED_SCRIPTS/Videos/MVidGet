@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#Read in the video list file into arrays
+source VideoListRead
+
+#Iterate through the links and names
+for ((index=0; index < $linksize; index=index+1)) ;do
+    VidGet ${links[$index]} ${Names[$index]}
+done
+
+#Go back one directory up
+cd ..

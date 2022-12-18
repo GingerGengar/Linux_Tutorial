@@ -3,4 +3,5 @@
 #Author: Hyahoos
 
 #Connect via ssh to some server
-kitty +kitten ssh $1
+#kitty +kitten ssh -X $1
+ssh -X $1

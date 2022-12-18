@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#Convert svg images to pdf_tex for inkscape latex interfacing
+inkscape -D --export-latex --export-filename=$1.pdf $1.svg

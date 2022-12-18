@@ -1,0 +1,55 @@
+# ~/.bashrc
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+
+# User Defined Bash Scripts
+UDF="~/.config/USER_DEFINED_SCRIPTS/"
+PATH="$UDF/App_Specific:${PATH}"
+PATH="$UDF/File_Navigation:${PATH}"
+PATH="$UDF/Crappy_Scripts:${PATH}"
+PATH="$UDF/Image_Utilities:${PATH}"
+PATH="$UDF/Screen:${PATH}"
+PATH="$UDF/System:${PATH}"
+PATH="$UDF/Theme:${PATH}"
+PATH="$UDF/File_Related:${PATH}"
+PATH="$UDF/Videos:${PATH}"
+PATH="$UDF:${PATH}"
+export PATH
+
+#Directory Aliases
+alias guideplace='cd ~/Documents/Guides && ls'
+alias ultiplace='cd ~/.config/nvim/UltiSnips && ls'
+alias workplace='cd ~/Documents/Academic && ls'
+alias vidprod='cd ~/Archive_Drive/Productive && ls'
+alias vident='cd ~/Archive_Drive/Entertainment/Music && ls'
+alias scriptplace='cd ~/.config/USER_DEFINED_SCRIPTS && ls'
+alias bookplace='cd ~/Documents/Books && ls'
+alias programplace='cd ~/Research/Programming && ls'
+alias downgrades='cd /var/cache/pacman/pkg/ && ls|less'
+alias careerplace='cd ~/Documents/Misc/Career_Planning && ls'
+alias downloadplace='cd ~/Utility/Downloads && ls'
+alias viewingplace='cd ~/Utility/Viewing_Station && nvim Viewing.tex'
+alias compressionplace='cd ~/Utility/Compressions && ls'
+alias gameplace='cd ~/Archive_Drive/Entertainment/Games && ls'
+
+#Paranoid C Compilation Option
+#alias gcc='gcc -g -std=c11 -Wall -Wshadow -Wvla -Werror -pedantic'
+
+#Default Rust compilations
+alias rustc='rustc -A non_snake_case -A non-camel_case_types -A non_upper_case_globals'
+
+#Purdue VPN (Delete This Later)
+alias PurdueVPN='sudo openconnect webvpn.purdue.edu'
+
+#Connecting to Sasha
+alias SashaCnnct='connect oak@10.165.3.201'
+
+#Connecting to Purdue Servers
+#alias ECECnnct='connect hsuganda@ecegrid-thin4.ecn.purdue.edu'
+alias FEACnnct='connect hsuganda@scholar.rcac.purdue.edu'
+#alias FileECE='sftp hsuganda@ecegrid-thin4.ecn.purdue.edu'
+alias FileFEA='sftp hsuganda@scholar.rcac.purdue.edu'

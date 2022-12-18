@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#Wallpaper Directory
+WallDir="$HOME/Archive_Drive/Wallpaper/Active"
+
+#Disable writing fehbg file
+flags="--no-fehbg "
+
+#Scaling the image
+flags=$flags"--bg-max "
+
+#Show random wallpapers each time only if run without input argument
+if [ $# -eq 0 ]; then
+    flags=$flags"--randomize "
+#If input argument is given, display that image instead
+else
+    WallDir=$WallDir/$1
+fi
+
+#Use feh to set the background
+feh $flags $WallDir

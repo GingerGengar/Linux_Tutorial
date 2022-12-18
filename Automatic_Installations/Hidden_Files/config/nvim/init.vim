@@ -1,3 +1,4 @@
+
 "Normal Vim Configs
 set tabstop=4 
 set softtabstop=4 
@@ -9,7 +10,10 @@ set number
 :filetype indent off
 
 "Enable saving for every single line change
-""""""""""""""""""""""""""""autocmd TextChanged,TextChangedI <buffer> write
+"""""""""autocmd TextChanged,TextChangedI <buffer> write
+
+"Allow Relative numbering systems
+:set relativenumber
 
 "Enable Copy Pasting
 set clipboard+=unnamedplus
@@ -17,8 +21,14 @@ set clipboard+=unnamedplus
 "Disable Some Useless Default vim Settings
 set nocompatible
 
-"Installation and inclusion of various plugins. The directory where the plugins are installed: /home/hyahoos/.config/nvim/NVIM_EXTENSIONS
-call plug#begin('/home/hyahoos/.config/nvim/NVIM_EXTENSIONS')
+"Load syntax from the start of the document
+:map <F12> :syntax sync fromstart 
+
+"Copy current directory
+:map <F11> :!Copy
+
+"Installation and inclusion of various plugins. The directory where the plugins are installed: ~/.config/nvim/NVIM_EXTENSIONS
+call plug#begin('~/.config/nvim/NVIM_EXTENSIONS')
 
 "For Powerline in nvim
 Plug 'vim-airline/vim-airline'
@@ -59,26 +69,9 @@ let g:vimtex_view_method='zathura'
 "
 let g:vimtex_quickfix_mode=0
 
-
-
 "Configure Ultisnippets
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 

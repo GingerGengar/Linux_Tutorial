@@ -1,0 +1,3 @@
+#!/bin/bash
+
+Start mgba-qt *.gba -t *.sav -f

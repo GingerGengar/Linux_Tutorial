@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#Read in the video list file into arrays
+source VideoListRead
+
+for ((index=0; index < $linksize; index=index+1)) ;do
+    #Only do something if the directory exists
+    if [ -d "${Names[$index]}" ]; then
+        #Go to the directory in the name list
+        cd ${Names[$index]}
+        #Check how many files that end with .mkv exist in directory
+        Playable=$(ls -1 *.mkv 2>/dev/null | wc -l)
+        #If there isn't a playable file, then something is wrong
+        if [ $Playable -ne 1 ]; then
+            echo ${Names[$index]} && echo ${links[$index]}   
+        fi
+        #Go back to the main video directory
+        cd ..
+    else
+        echo ${Names[$index]} && echo ${links[$index]}
+    fi
+done
+
+#Go back one directory up
+cd ..

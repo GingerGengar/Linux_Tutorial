@@ -118,14 +118,15 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="551.405769408219"
-         height="51.6926130159636"
+         width="122.669490303582"
+         height="38.3898204893577"
          ry="0"
          rx="0" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
-         usecurrent="1">
+         usecurrent="1"
+         persp="perspective16793">
         <side
            id="XYfront"
            style="fill:#8686bf;stroke:none;stroke-linejoin:round;"
@@ -157,22 +158,23 @@
          end="0"
          start="0"
          usecurrent="1"
-         rx="16.5394520196391"
-         ry="16.5966490497742"
+         rx="1.19425146598516"
+         ry="1.24057401822308"
          arc_type="0" />
       <eventcontext
          id="star"
-         magnitude="5"
+         magnitude="4"
          style="fill:yellow;"
          usecurrent="1"
-         proportion="0.499999985083633"
-         isflatsided="1"
-         rounded="-1.1" />
+         proportion="0.01"
+         isflatsided="0"
+         rounded="0" />
       <eventcontext
          id="spiral"
          style="fill:none;stroke:black"
          expansion="1"
-         usecurrent="0" />
+         usecurrent="0"
+         revolution="3" />
     </group>
     <group
        id="freehand"
@@ -182,9 +184,10 @@
          tolerance="15.0"
          selcue="1"
          style="stroke-width:1px;"
-         usecurrent="1"
+         usecurrent="0"
          average_all_sketches="1"
-         pressure="0" />
+         pressure="0"
+         freehand-mode="1" />
       <eventcontext
          id="pen"
          mode="drag"
@@ -313,7 +316,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="px"
+       unit="mm"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -322,7 +325,7 @@
        font_sample="AaBbCcIiPpQq12369$€¢?.;/()"
        show_sample_in_list="1"
        use_svg2="1"
-       style="fill:black;fill-opacity:1;line-height:1.25;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;"
+       style="line-height:1.25;font-family:'DejaVu Sans Mono';font-size:40px;-inkscape-font-specification:'DejaVu Sans Mono'"
        selcue="1" />
     <eventcontext
        id="nodes"
@@ -339,8 +342,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="0"
-       y="0"
+       x="141.947916850394"
+       y="308.652381732284"
        edit_clipping_paths="0"
        edit_masks="0" />
     <eventcontext
@@ -379,7 +382,9 @@
        selcue="1" />
     <eventcontext
        id="mesh"
-       selcue="1" />
+       selcue="1"
+       mesh_geometry="1"
+       newfillorstroke="0" />
     <eventcontext
        id="zoom"
        selcue="1"
@@ -409,6 +414,17 @@
     <group
        id="geometric"
        mode="drag" />
+    <group
+       id="measure">
+      <group
+         id="measure-start"
+         x="322.212063128718"
+         y="139.603045137233" />
+      <group
+         id="measure-end"
+         x="451.989054063656"
+         y="296.029297201648" />
+    </group>
   </group>
   <group
      id="palette">
@@ -574,7 +590,7 @@
     <group
        id="preferences"
        state="1"
-       page="1" />
+       page="24" />
     <group
        id="gradienteditor" />
     <group
@@ -584,33 +600,36 @@
        default=""
        append_extension="1"
        path=""
-       defaultopts="1">
+       defaultopts="0">
       <group
          id="exportarea"
-         value="drawing" />
+         value="custom" />
       <group
          id="defaultxdpi" />
       <group
          id="batchexportarea"
          value="layer" />
+      <group
+         id="defaultdpi"
+         value="37.5627136230469" />
     </group>
     <group
        id="save_as"
-       default="org.inkscape.output.pdf.cairorenderer"
+       default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/home/hyahoos/Downloads"
+       path="/home/hyahoos/Documents/Academic/AAE_55800/Exams/Exam_03/Images/Pure_SVG"
        use_current_dir="1" />
     <group
        id="save_copy"
-       default=""
+       default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="" />
+       path="/home/hyahoos/Documents/Academic/AAE_55800/Homework_02/Inkscape" />
     <group
        id="open"
        enable_preview="1"
-       path="" />
+       path="/home/hyahoos/Documents/Academic/AAE_55800/Exams/Exam_03/Images/Pure_SVG/" />
     <group
        id="import"
        enable_preview="1"
@@ -823,10 +842,10 @@
        value="2" />
     <group
        id="transform"
-       stroke="1"
-       rectcorners="1"
-       pattern="1"
-       gradient="1" />
+       stroke="0"
+       rectcorners="0"
+       pattern="0"
+       gradient="0" />
     <group
        id="dash"
        scale="1" />
@@ -942,10 +961,12 @@
        unitType="2" />
     <group
        id="boot"
-       theme="colorful">
+       theme="custom"
+       enabled="0">
       <group
          id="shown"
-         ver1.2="1" />
+         ver1.2="1"
+         ver1.2.1="1" />
     </group>
     <group
        id="rendering" />
@@ -974,13 +995,13 @@
      org.inkscape.output.png.inkscape.png_compression="6"
      org.inkscape.output.png.inkscape.png_antialias="2"
      org.inkscape.output.pdf.cairorenderer.PDFversion="PDF-1.5"
-     org.inkscape.output.pdf.cairorenderer.textToPath="embed"
-     org.inkscape.output.pdf.cairorenderer.resolution="300"
-     org.inkscape.output.pdf.cairorenderer.bleed="0.6"
+     org.inkscape.output.pdf.cairorenderer.textToPath="LaTeX"
+     org.inkscape.output.pdf.cairorenderer.resolution="86"
+     org.inkscape.output.pdf.cairorenderer.bleed="0"
      org.inkscape.output.pdf.cairorenderer.area="drawing" />
   <group
      id="desktop"
-     style="fill:#000000;stroke:#000000;stroke-width:0.4;stroke-linecap:square;paint-order:fill markers stroke;-inkscape-font-specification:'Times New Roman, ';font-family:'Times New Roman';font-size:18.66666667px">
+     style="fill:#000000;stroke-width:0.56692913;-inkscape-font-specification:'DejaVu Sans Mono';font-family:'DejaVu Sans Mono';paint-order:markers fill stroke;line-height:normal;text-decoration-color:#000000;stop-color:#000000;stroke:#000000;font-size:12px;fill-opacity:0">
     <group
        width="640"
        height="480"
@@ -1110,11 +1131,10 @@
      narrowSpinButton="1"
      preferDarkTheme="1"
      darkTheme="1"
-     symbolicIcons="1"
-     symbolicDefaultBaseColors="0"
-     symbolicDefaultHighColors="0"
-     gtkTheme="Adwaita"
-     iconTheme="multicolor">
+     symbolicIcons="0"
+     symbolicDefaultBaseColors="1"
+     symbolicDefaultHighColors="1"
+     fontscale="100">
     <group
        id="multicolor"
        symbolicBaseColor="3958107135"
@@ -1125,4 +1145,7 @@
   <group
      id="gradient-edit"
      stoplist="1" />
+  <group
+     id="color_scales"
+     wheel_vis_hsl="0" />
 </inkscape>

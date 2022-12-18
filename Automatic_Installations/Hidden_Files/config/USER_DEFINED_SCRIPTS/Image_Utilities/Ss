@@ -2,13 +2,14 @@
 
 #Author: Hyahoos
 
+#Take Screenshot using Scrot
+scrot ~/Utility/Shots/SS%d%T.png
+
 #Takes Screenshot using xorg-xwd and outputs to directory
-xwd -root > ~/Utility/Shots/Screenshot.xwd
+#xwd -root > ~/Utility/Shots/Screenshot.xwd
 
 #Converts from .xwd to png format using imagemagick
-convert ~/Utility/Shots/Screenshot.xwd ~/Utility/Shots/Screenshot.png
+#convert ~/Utility/Shots/Screenshot.xwd ~/Utility/Shots/Screenshot.png
 
 #Removes the .xwd file
-rm ~/Utility/Shots/Screenshot.xwd
-
-
+#rm ~/Utility/Shots/Screenshot.xwd

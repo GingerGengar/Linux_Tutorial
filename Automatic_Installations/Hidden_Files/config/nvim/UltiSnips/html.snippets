@@ -1,0 +1,35 @@
+
+#Start a bare-bones html file
+snippet barenew "" wA
+<!DOCTYPE html>
+<html>
+$0
+</html>
+endsnippet
+
+#Shorthand for html
+snippet htm "html" wA
+html$0
+endsnippet
+
+#Enter the characteristic html brackets
+snippet beg "<> </>" w
+<$1>$2</$1>$0
+endsnippet
+
+#Insert a comment
+snippet comm "<!--  -->" w
+<!--$1-->$0
+endsnippet
+
+#Insert a newline
+snippet newl "<br>" wA
+<br>$0
+endsnippet
+
+#This is a reference to another page
+snippet uref "" wA
+<a href="$1">$2</a>$0
+endsnippet
+
+

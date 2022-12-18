@@ -1,0 +1,7 @@
+#!/bin/bash
+
+Check_Vid $1 $2 > $1_Append.tex
+
+MVidGet $1_Append.tex $2
+
+rm $1_Append.tex

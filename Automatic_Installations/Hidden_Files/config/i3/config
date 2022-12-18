@@ -41,7 +41,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -180,7 +180,7 @@ bindsym $mod+r mode "resize"
 set $mod2 Mod1
 
 # Start Polybar
-exec_always --no-startup-id $HOME/.config/USER_DEFINED_SCRIPTS/Theme/Polybar_Setup
+exec_always --no-startup-id ~/.config/USER_DEFINED_SCRIPTS/Theme/Polybar_Setup
 
 # enter fullscreen mode for the focused container and hide polybar
 bindsym $mod+f fullscreen toggle
@@ -207,6 +207,9 @@ bindsym $mod2+b exec --no-startup-id ~/.config/USER_DEFINED_SCRIPTS/Screen/BlueS
 bindsym $mod2+o exec --no-startup-id ~/.config/USER_DEFINED_SCRIPTS/App_Specific/vim_autosave_on
 bindsym $mod2+f exec --no-startup-id ~/.config/USER_DEFINED_SCRIPTS/App_Specific/vim_autosave_off
 
+#Start the normal configuration
+bindsym $mod2+Shift+s exec --no-startup-id ~/.config/USER_DEFINED_SCRIPTS/App_Specific/Homepage
+
 # You can also use any non-zero value if you'd like to have a border
 for_window [class=".*"] border pixel 0
 
@@ -216,4 +219,3 @@ for_window [class=".*"] border pixel 0
 
 gaps top 21
 gaps inner 5
-

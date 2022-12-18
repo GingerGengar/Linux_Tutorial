@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#Get the output from grep for the links
+links_string="$(grep '^http' $1)"
+#Get the output from grep for the names of songs
+Names_string="$(grep -v '^http' $1)"
+
+#Turn the string of links into an array
+links=(${links_string})
+#Turn the string of Names into an array
+Names=(${Names_string})
+
+#Getting the size of the arrays for the links
+linksize=${#links[@]}
+#Getting the size of the array for the names
+Namesize=${#Names[@]}
+
+#Check if the number of names and links in the file matches or not
+#If the link array and name array does not match in size, quit
+if [ $linksize -ne $Namesize ]; then
+    echo "Video List not Valid (Names and Links Don't Match)! Aborting..."
+    exit 0
+fi
+
+#Check if the directory to hold the data exists or not
+if [ -d "$2" ]; then
+    cd $2
+else
+    echo "Directory to hold the data does not exist! Aborting..."
+    exit 0
+fi

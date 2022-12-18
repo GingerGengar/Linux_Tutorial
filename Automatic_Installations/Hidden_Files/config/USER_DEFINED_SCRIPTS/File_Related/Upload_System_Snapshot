@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#Author: Hyahoos
+
+address="vultr-ewr1:hyahoos-storage"
+
+rclone sync -P -L /home $address

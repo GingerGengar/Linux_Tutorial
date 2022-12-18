@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#Read in the video list file into arrays
+source VideoListRead
+
+#Play each video within the file
+mpv ${Names[@]:0:$linksize}

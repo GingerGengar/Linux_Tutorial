@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#grep -o '[^ ]\+$'
+#fuser /tmp/trml_03
+
+
+#Start the performance manager on one of them
+kitty @ --to unix:/tmp/trml_01 send-text 'htop \n'
+
+#Start the calendar on terminal trml_02
+kitty @ --to unix:/tmp/trml_02 send-text 'calcurse \n'
+
+#Start the list of tasks to do on trml_03
+kitty @ --to unix:/tmp/trml_03 send-text 'guideplace && nvim ToDo.txt\n'
