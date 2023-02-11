@@ -21,16 +21,16 @@ PATH="$UDF:${PATH}"
 export PATH
 
 #Directory Aliases
-alias guideplace='cd ~/Documents/Guides && ls'
+alias guideplace='cd ~/Core/Guides && ls'
 alias ultiplace='cd ~/.config/nvim/UltiSnips && ls'
-alias workplace='cd ~/Documents/Academic && ls'
+alias workplace='cd ~/Core/Academic && ls'
 alias vidprod='cd ~/Archive_Drive/Productive && ls'
 alias vident='cd /home/hyahoos/Utility/Music && ls'
 alias scriptplace='cd ~/.config/USER_DEFINED_SCRIPTS && ls'
-alias bookplace='cd ~/Documents/Books && ls'
+alias bookplace='cd ~/Core/Books && ls'
 alias programplace='cd ~/Research/Programming && ls'
 alias downgrades='cd /var/cache/pacman/pkg/ && ls|less'
-alias careerplace='cd ~/Documents/Misc/Career_Planning && ls'
+alias careerplace='cd ~/Core/Misc/Career_Planning && ls'
 alias downloadplace='cd ~/Utility/Downloads && ls'
 alias viewingplace='cd ~/Utility/Viewing_Station && nvim Viewing.tex'
 alias compressionplace='cd ~/Utility/Compressions && ls'

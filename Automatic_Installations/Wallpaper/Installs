@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo "Copying Over Wallpaper Images to Home directory..."
-cp -r Wallpapers/ ~

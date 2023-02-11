@@ -51,14 +51,17 @@ fi
 
 ############################################################
 
-#To Allow Wallpaper
-nitrogen --restore &
-
-#Set the tint screen
-TintScreen
+#Allow usage of user defined scripts
+source ~/.bashrc
 
 #Start the compactor
 picom &
+
+#Set the tint screen
+redshift -P -O 4500
+
+#To Allow Wallpaper
+feh --no-fehbg --bg-max  $HOME/Archive_Drive/Wallpaper/Active/Frozen_Trees.jpg
 
 #Start the Window Manager
 #exec dwm

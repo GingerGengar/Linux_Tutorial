@@ -16,6 +16,7 @@ sed -i 's/active_border_color .*/active_border_color #ffc88a/g' $KITTY/kitty.con
 sed -i 's/inactive_border_color .*/inactive_border_color #c03900/g' $KITTY/kitty.conf
 sed -i 's/active_tab_background .*/active_tab_background #f6ff3f/g' $KITTY/kitty.conf
 sed -i 's/inactive_tab_background .*/inactive_tab_background #f79400/g' $KITTY/kitty.conf
+kill -SIGUSR1 $(pgrep kitty)
 
 #Conky
 CONKY=$CONFIG/conky

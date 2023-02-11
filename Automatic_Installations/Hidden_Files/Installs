@@ -1,5 +1,0 @@
-#!/bin/bash
-
-cp bashrc ~/.bashrc
-cp xinitrc ~/.xinitrc
-cp config ~/.config

@@ -5,4 +5,4 @@ kitty --listen-on unix:/tmp/trml_01 & #Listen on tmp/tmrl_01
 kitty --listen-on unix:/tmp/trml_02 & #Listen on tmp/tmrl_02
 kitty --listen-on unix:/tmp/trml_03 & #Listen on tmp/tmrl_03
 
-sleep 0.2
+sleep 0.5

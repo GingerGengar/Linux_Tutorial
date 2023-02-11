@@ -1,0 +1,13 @@
+Programs+=(
+
+#Controls Power asusctl depends on this
+power-profiles-daemon
+
+#Below handles the fan and other things like keyboard lighting and so on this one works
+asusctl
+
+#Below list programs that are supposed to handle the fan but probably doesnt work
+asus-fan-dkms-git
+fancontrol-gui
+
+)

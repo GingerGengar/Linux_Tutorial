@@ -1,0 +1,12 @@
+Programs+=(
+
+#Shows System software specs using ASCII art
+neofetch
+
+#Below is a fun tool to generate a ASCII art cow in the terminal
+cowsay
+
+#Figlet is a program that prints ASCII art of a text
+figlet
+
+)

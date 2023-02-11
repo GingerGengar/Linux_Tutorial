@@ -5,15 +5,15 @@
 map <C-m> feedkeys ":exec zathura $FILE<Return>"
 
 #Colors
-set default-bg "#262626"
-set inputbar-bg "#f79400"
+set default-bg "#fbf1c7"
+set inputbar-bg "#cc241d"
 set inputbar-fg "#000000"
-set statusbar-bg "#ffc88a"
+set statusbar-bg "#d79921"
 set statusbar-fg "#000000"
-set notification-bg "#fb5d00"
+set notification-bg "#b16286"
 set notification-fg "#000000"
-set highlight-color "#f6ff3f"
-set highlight-active-color "#fb5d00"
+set highlight-color "#98971a"
+set highlight-active-color "#79740e"
 
 #Others
 set show-scrollbars true

@@ -93,6 +93,18 @@ snippet int "\int^{}_{} \,d " i
 \int^{$1}_{$2} $3 \,d$0
 endsnippet
 
+#Integrate surface
+context "math()"
+snippet iin "\iint^{}_{} \,d " i
+\iint^{$1}_{$2} $3 \,d$0
+endsnippet
+
+#Integrate volume
+context "math()"
+snippet iii "\iint^{}_{} \,d " i
+\iiint^{$1}_{$2} $3 \,d$0
+endsnippet
+
 #Derivative
 context "math()"
 snippet deriv "\frac{d}{d } " iA
@@ -591,6 +603,7 @@ snippet NewDocs "Make the Template for a new document" bA
 \usepackage{float}
 \usepackage{import}
 \usepackage{transparent}
+\usepackage{multirow}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Miscellaneous Configurations

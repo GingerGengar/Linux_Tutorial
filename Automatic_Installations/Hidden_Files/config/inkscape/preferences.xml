@@ -118,15 +118,15 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="122.669490303582"
-         height="38.3898204893577"
+         width="145.655729038509"
+         height="151.192751906986"
          ry="0"
          rx="0" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
          usecurrent="1"
-         persp="perspective16793">
+         persp="perspective1589">
         <side
            id="XYfront"
            style="fill:#8686bf;stroke:none;stroke-linejoin:round;"
@@ -158,8 +158,8 @@
          end="0"
          start="0"
          usecurrent="1"
-         rx="1.19425146598516"
-         ry="1.24057401822308"
+         rx="5.81447451133427"
+         ry="5.93928720068743"
          arc_type="0" />
       <eventcontext
          id="star"
@@ -187,14 +187,14 @@
          usecurrent="0"
          average_all_sketches="1"
          pressure="0"
-         freehand-mode="1" />
+         freehand-mode="2" />
       <eventcontext
          id="pen"
          mode="drag"
          selcue="1"
          style="stroke-width:1px;"
          usecurrent="1"
-         freehand-mode="3" />
+         freehand-mode="1" />
     </group>
     <eventcontext
        id="calligraphic"
@@ -342,8 +342,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="141.947916850394"
-       y="308.652381732284"
+       x="467.585725984252"
+       y="368.991246614173"
        edit_clipping_paths="0"
        edit_masks="0" />
     <eventcontext
@@ -629,7 +629,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/hyahoos/Documents/Academic/AAE_55800/Exams/Exam_03/Images/Pure_SVG/" />
+       path="/home/hyahoos/Core/Beringin/LaTeX_Data/Substantive Derivative/Images/" />
     <group
        id="import"
        enable_preview="1"
@@ -1001,14 +1001,14 @@
      org.inkscape.output.pdf.cairorenderer.area="drawing" />
   <group
      id="desktop"
-     style="fill:#000000;stroke-width:0.56692913;-inkscape-font-specification:'DejaVu Sans Mono';font-family:'DejaVu Sans Mono';paint-order:markers fill stroke;line-height:normal;text-decoration-color:#000000;stop-color:#000000;stroke:#000000;font-size:12px;fill-opacity:0">
+     style="fill:#000000;stroke-width:0.56692913;-inkscape-font-specification:'DejaVu Sans Mono';font-family:'DejaVu Sans Mono';paint-order:markers fill stroke;line-height:normal;text-decoration-color:#000000;stop-color:#000000;stroke:#000000;font-size:12px;stroke-miterlimit:4.3;fill-opacity:0;stroke-dasharray:0.56692916,1.13385831">
     <group
        width="640"
        height="480"
        x="0"
        y="0"
        maximized="1"
-       fullscreen="0"
+       fullscreen="1"
        id="geometry" />
     <group
        id="XYfront" />
